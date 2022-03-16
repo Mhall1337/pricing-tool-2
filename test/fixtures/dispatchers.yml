@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  dispatcher_name: MyString
+  dispatcher_phone_number: 1
+  email: MyString
+  carrier_id: 1
+
+two:
+  dispatcher_name: MyString
+  dispatcher_phone_number: 1
+  email: MyString
+  carrier_id: 1
