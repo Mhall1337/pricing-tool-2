@@ -10,8 +10,46 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 0) do
+ActiveRecord::Schema[7.0].define(version: 2022_03_16_155358) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "carriers", force: :cascade do |t|
+    t.string "carrier_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "dispatchers", force: :cascade do |t|
+    t.string "dispatcher_name"
+    t.integer "dispatcher_phone_number"
+    t.string "email"
+    t.integer "carrier_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "shipments", force: :cascade do |t|
+    t.string "origin_city"
+    t.string "origin_state"
+    t.string "destination_city"
+    t.string "destination_state"
+    t.string "commodity"
+    t.string "trailer_type"
+    t.integer "carrier_id"
+    t.integer "miles"
+    t.integer "rate"
+    t.string "driver_name"
+    t.integer "driver_phone_number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "username"
+    t.string "password_digest"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
 end
