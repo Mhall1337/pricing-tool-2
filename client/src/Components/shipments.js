@@ -12,20 +12,26 @@ function Shipments() {
     return (
         <div>
             <h3>Shipments</h3>
-
+            <table className='grid-container'>
+                            <th className="grid-item">Commodity</th>
+                            <th className="grid-item">Trailer Type</th>
+                            <th className="grid-item">Miles</th>
+                            <th className="grid-item">Rate</th>
+                            <th className="grid-item">Driver Name</th>
+                            <th className="grid-item">Driver Phone Number</th>
             {shipments.map((shipment, index) => {
                 return (
-                    <div className='grid-container' key={index} >
-                        <div className="grid-item">Commodity: {shipment.commodity}</div>
-                        <div className="grid-item">Trailer Type:{shipment.trailer_type}</div>
-                        <div className="grid-item">Miles:{shipment.miles}</div>
-                        <div className="grid-item">Rate: {shipment.rate}</div>
-                        <div className="grid-item">Driver Name: {shipment.driver_name}</div>
-                        <div className="grid-item">Driver Phone Number: {shipment.driver_phone_number}</div>
-                    </div>
+                 <tr key={index}>
+                     <td>{shipment.commodity}</td>
+                     <td>{shipment.trailer_type}</td>
+                     <td>{shipment.miles}</td>
+                     <td>{shipment.rate}</td>
+                     <td>{shipment.driver_name}</td>
+                     <td>{shipment.driver_phone_number}</td>
+                 </tr>
                 )
             })}
-
+            </table>
         </div>
     )
 }
