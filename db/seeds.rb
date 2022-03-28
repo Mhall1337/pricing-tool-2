@@ -17,5 +17,5 @@ end
 
 
   5.times do
-   Shipment.create(origin_city: Faker::Address.city, origin_state: Faker::Address.state_abbr, destination_city: Faker::Address.city, destination_state: Faker::Address.state_abbr, commodity: Faker::Commerce.material, trailer_type: "FB", carrier_id: rand(1..50), miles: rand(1..1000), rate: rand(1..4000), driver_name: Faker::Name.name, driver_phone_number: Faker::PhoneNumber.phone_number, dispatcher_id: Dispatcher.ids.sample)
+   Shipment.create(commodity: Faker::Commerce.material, trailer_type: "FB", carrier_id: rand(1..50), miles: rand(1..1000), rate: rand(1..4000), driver_name: Faker::Name.name, driver_phone_number: Faker::PhoneNumber.phone_number, dispatcher_id: Dispatcher.ids.sample)
   end
