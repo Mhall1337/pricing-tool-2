@@ -6,16 +6,13 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-
-
 50.times do
-    carrier = Carrier.create(carrier_name: Faker::Company.name)
-    5.times do
-      carrier.dispatchers.create(dispatcher_name: Faker::Name.name, dispatcher_phone_number: Faker::PhoneNumber.phone_number, email: Faker::Internet.email, carrier_id: carrier.id)
-    end
+  carrier = Carrier.create(carrier_name: Faker::Company.name)
+  5.times do
+    carrier.dispatchers.create(dispatcher_name: Faker::Name.name, dispatcher_phone_number: Faker::PhoneNumber.phone_number, email: Faker::Internet.email, carrier_id: carrier.id)
+  end
 end
 
-
-  5.times do
-   Shipment.create(commodity: Faker::Commerce.material, trailer_type: "FB", carrier_id: rand(1..50), miles: rand(1..1000), rate: rand(1..4000), driver_name: Faker::Name.name, driver_phone_number: Faker::PhoneNumber.phone_number, dispatcher_id: Dispatcher.ids.sample)
-  end
+5.times do
+  Shipment.create(commodity: Faker::Commerce.material, trailer_type: "FB", carrier_id: rand(1..50), miles: rand(1..1000), rate: rand(1..4000), driver_name: Faker::Name.name, driver_phone_number: Faker::PhoneNumber.phone_number, dispatcher_id: Dispatcher.ids.sample)
+end
