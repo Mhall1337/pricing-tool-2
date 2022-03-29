@@ -1,6 +1,7 @@
 function SearchBar(){
 return(
     <div>
+        <hr></hr>
         <div>Search</div>
         <label>Origin City: </label>
         <input placeholder="Search Origin City"></input>
@@ -13,6 +14,7 @@ return(
         <label> Carrier: </label>
         <input placeholder="Search Carrier"></input>
         <button>Search</button>
+        <hr></hr>
     </div>
     
 )
