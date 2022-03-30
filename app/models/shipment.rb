@@ -2,6 +2,7 @@ class Shipment < ApplicationRecord
     belongs_to :carrier
     belongs_to :dispatcher
 	@dispatcher_contact_info
+    belongs_to :origin, class_name: 'CityState'
 
     def dispatcher_contact_info(dispatcher_id = rand(1..5))
         @dispatcher_contact_info = {
