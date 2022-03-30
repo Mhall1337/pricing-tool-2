@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_03_24_005114) do
+ActiveRecord::Schema[7.0].define(version: 2022_03_30_190113) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -18,13 +18,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_24_005114) do
     t.string "carrier_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "cities", force: :cascade do |t|
-    t.string "city_name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "state_id"
   end
 
   create_table "dispatchers", force: :cascade do |t|
@@ -53,6 +46,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_24_005114) do
     t.string "state_abbr"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "city"
   end
 
   create_table "users", force: :cascade do |t|
