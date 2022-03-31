@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_03_30_221742) do
+ActiveRecord::Schema[7.0].define(version: 2022_03_31_142003) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -20,14 +20,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_30_221742) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "cities_states", force: :cascade do |t|
-    t.string "state_abbr"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "city"
-    t.string "state_long_name"
-  end
-
   create_table "dispatchers", force: :cascade do |t|
     t.string "dispatcher_name"
     t.integer "dispatcher_phone_number"
@@ -35,6 +27,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_30_221742) do
     t.integer "carrier_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "locations", force: :cascade do |t|
+    t.string "state_abbr"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "city"
+    t.string "state_long_name"
   end
 
   create_table "shipments", force: :cascade do |t|
@@ -59,6 +59,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_30_221742) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "shipments", "cities_states", column: "destination_id"
-  add_foreign_key "shipments", "cities_states", column: "origin_id"
+  add_foreign_key "shipments", "locations", column: "destination_id"
+  add_foreign_key "shipments", "locations", column: "origin_id"
 end
