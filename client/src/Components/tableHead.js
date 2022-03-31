@@ -1,40 +1,33 @@
+import { useState } from "react"
+
 function TableHead({ setShipments, shipments }) {
+
+const [sortOrder, setSortOrder] = useState(true)
+
     function sort(e) {
+        setSortOrder(!sortOrder)
+        let order
         const columnName = e.target.textContent
-        const sortedShipments = shipments.sort(function (a, b) {
-            let nameA
-            let nameB
             switch (columnName) {
                 case "Origin City":
-                    nameA = a.origin.city.toUpperCase()
-                    nameB = b.origin.city.toUpperCase()
+                    sortOrder ? order = shipments.sort((a, b) => b.origin.city.localeCompare(a.origin.city)) : order = shipments.sort((a, b) => a.origin.city.localeCompare(b.origin.city))
                     break;
-                case "Origin State":
-                    nameA = a.origin.state_abbr.toUpperCase()
-                    nameB = b.origin.state_abbr.toUpperCase()
+                 case "Origin State":
+                   sortOrder ? order = shipments.sort((a, b) => b.origin.state_abbr.localeCompare(a.origin.state_abbr)) : order = shipments.sort((a, b) => a.origin.state_abbr.localeCompare(b.origin.state_abbr))
                     break;
                 case "Carrier Name":
-                    nameA = a.carrier.carrier_name.toUpperCase()
-                    nameB = b.carrier.carrier_name.toUpperCase()
+                    sortOrder ? order = shipments.sort((a, b) => b.carrier.carrier_name.localeCompare(a.carrier.carrier_name)) : order = shipments.sort((a, b) => a.carrier.carrier_name.localeCompare(b.carrier.carrier_name))
                     break;
                 case "Dest. City":
-                    nameA = a.destination.city.toUpperCase()
-                    nameB = b.destination.city.toUpperCase()
+                    sortOrder ? order = shipments.sort((a, b) => b.destination.city.localeCompare(a.destination.city)) : order = shipments.sort((a, b) => a.destination.city.localeCompare(b.destination.city))
                     break;
                 case "Dest. State":
-                    nameA = a.destination.state_abbr.toUpperCase()
-                    nameB = b.destination.state_abbr.toUpperCase()
+                    sortOrder ? order = shipments.sort((a, b) => b.destination.state_abbr.localeCompare(a.destination.state_abbr)) : order = shipments.sort((a, b) => a.destination.state_abbr.localeCompare(b.destination.state_abbr))
                     break;
             }
-            if (nameA < nameB) {
-                return -1;
-            }
-            if (nameA > nameB) {
-                return 1;
-            }
-            return 0
-        })
-        setShipments([...sortedShipments])
+            
+        
+        setShipments([...order])
     }
 
     return (
