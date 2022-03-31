@@ -13,6 +13,23 @@
   end
 end
 
+
+Location.create(state_abbr: "AL", city: "Birmingham", state_long_name: "Alabama")
+Location.create(state_abbr: "IL", city: "Chicago", state_long_name: "Illinois")
+Location.create(state_abbr: "OH", city: "Cleveland", state_long_name: "Ohio")
+Location.create(state_abbr: "PA", city: "Philadelphia", state_long_name: "Pennsylvania")
+Location.create(state_abbr: "LA", city: "New Orleans", state_long_name: "Louisiana")
+Location.create(state_abbr: "TX", city: "Houston", state_long_name: "Texas")
+Location.create(state_abbr: "MN", city: "Minneapolis", state_long_name: "Minnesota")
+Location.create(state_abbr: "MO", city: "St. Louis", state_long_name: "Missouri")
+Location.create(state_abbr: "MI", city: "Detroit", state_long_name: "Michigan")
+Location.create(state_abbr: "AL", city: "Mobile", state_long_name: "Alabama")
+
+
 20.times do
-  Shipment.create(commodity: Faker::Commerce.material, trailer_type: "FB", carrier_id: rand(1..10), miles: rand(1..1000), rate: rand(1..4000), driver_name: Faker::Name.name, driver_phone_number: Faker::PhoneNumber.phone_number, dispatcher_id: Dispatcher.ids.sample)
+  Shipment.create(commodity: Faker::Commerce.material, trailer_type: "FB", carrier_id: rand(1..10), miles: rand(1..1000), rate: rand(1..4000), driver_name: Faker::Name.name, driver_phone_number: Faker::PhoneNumber.phone_number, dispatcher_id: Dispatcher.ids.sample, origin_id: rand(1..10), destination_id: rand(1..10))
 end
+
+
+
+
