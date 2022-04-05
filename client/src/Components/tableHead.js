@@ -44,6 +44,7 @@ const [sortOrder, setSortOrder] = useState(true)
                 <th className="grid-item">Dispatcher Name</th>
                 <th className="grid-item">Dispatcher Phone Number</th>
                 <th className="grid-item">Dispatcher Email Address</th>
+                <th className="grid-item">Shipment Count</th>
             </tr>
         </thead>
     )
