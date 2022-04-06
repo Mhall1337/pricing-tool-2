@@ -1,30 +1,27 @@
 import { useState } from "react"
 
 function SearchBar() {
-    const [formVal, setFormVal] = useState({
-        origin_city: '*',
-        origin_state: '*',
-        carrier: '*',
-        destination_city: '*',
-        destination_state: '*'
-    })
-    console.log(formVal)
+    const [originCity, setOriginCity] = useState('')
+    const [originState, setOriginState] = useState('')
+    const [carrier, setCarrier] = useState('')
+    const [destCity, setDestCity] = useState('')
+    const [destState, setDestState] = useState('')
     function handleSearch(e) {
         e.preventDefault()
-        setFormVal({
-            origin_city: e.target[0].value,
-            origin_state: e.target[1].value,
-            carrier: e.target[2].value,
-            destination_city: e.target[3].value,
-            destination_state: e.target[4].value
-        })
-        e.target.reset()
-        fetch('/searchShipments', {
-            method: "GET",
+        const formVals = {
+            origin_city: originCity,
+            origin_state: originState,
+            carrier: carrier,
+            destination_city: destCity,
+            destination_state: destState
+        }
+        //console.log(formVals)
+        fetch(`http://localhost:3000/search`, {
+            method: 'POST',
             headers: {
-                'Content-type': 'application/json'
+                'Content-Type': 'application/json'
             },
-            body: JSON.stringify(formVal)
+            body: JSON.stringify(formVals)
         })
             .then(r => r.json())
             .then(r => {
@@ -32,8 +29,11 @@ function SearchBar() {
                     console.log(r)
                 }
             })
+
+        e.target.reset()
     }
 
+   
 
 
     return (
@@ -42,15 +42,15 @@ function SearchBar() {
             <div>Search</div>
             <form onSubmit={handleSearch} >
                 <label>Origin City: </label>
-                <input placeholder="Search Origin City" type='text' name="origin_city"></input>
+                <input placeholder="Search Origin City" type='text' name="origin_city" value={originCity} onChange={(e)=>setOriginCity(e.target.value)}></input>
                 <label> Origin State: </label>
-                <input placeholder="Search Origin State" type='text' name="origin_state" ></input>
+                <input placeholder="Search Origin State" type='text' name="origin_state" value={originState} onChange={(e)=>setOriginState(e.target.value)}></input>
                 <label> Destination City: </label>
-                <input placeholder="Search Destination City" type='text' name="destination_city" ></input>
+                <input placeholder="Search Destination City" type='text' name="destination_city" value={destCity} onChange={(e)=>setDestCity(e.target.value)}></input>
                 <label> Destination State: </label>
-                <input placeholder="Search Destination State" type='text' name="destination_state" ></input>
+                <input placeholder="Search Destination State" type='text' name="destination_state" value={destState} onChange={(e)=>setDestState(e.target.value)}></input>
                 <label> Carrier: </label>
-                <input placeholder="Search Carrier" name="carrier" ></input>
+                <input placeholder="Search Carrier" name="carrier" value={carrier} onChange={(e)=>setCarrier(e.target.value)}></input>
                 <input type="submit" value='submit'></input>
             </form >
             <hr></hr>
