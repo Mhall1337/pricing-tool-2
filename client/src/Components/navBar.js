@@ -2,11 +2,11 @@ import { NavLink } from "react-router-dom";
 
 function NavBar(){
     return(
-        <div>
-            <NavLink to="/" exact>
+        <div className="navBar">
+            <NavLink to="/" exact className="navBar">
                 Shipments
             </NavLink>
-            <NavLink to="/map" exact>
+            <NavLink to="/map" exact className="navBar">
                 Map
             </NavLink>
         </div>
