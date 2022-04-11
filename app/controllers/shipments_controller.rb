@@ -5,6 +5,7 @@ class ShipmentsController < ApplicationController
   end
 
   def search
+    binding.break
   end
 
   private

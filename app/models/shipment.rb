@@ -4,7 +4,7 @@ class Shipment < ApplicationRecord
     belongs_to :origin, class_name: 'Location'
     belongs_to :destination, class_name: 'Location'
     #@@uni_arr
-    @non_uni
+    @non_uni = []
     
 
     # def self.unique_shipments
@@ -26,16 +26,17 @@ class Shipment < ApplicationRecord
     #     end
     # end
 
-    def find_duplicates 
+    def self.find_duplicates 
         shipments = Shipment.all.map{|e| [e.origin.city, e.origin.state_abbr, e.carrier, e.destination.city, e.destination.state_abbr]}
-        @non_uni = shipments.select.with_index do |e, i|
+        @@non_uni = shipments.select.with_index do |e, i|
             i != shipments.index(e)
         end
+        
     end
     
     def handle_duplicate
         Shipment.all.select do |e|
-            [e.origin.city, e.origin.state_abbr, e.carrier, e.destination.city, e.destination.state_abbr] == @non_uni
+            e.origin.city && e.origin.state_abbr && e.carrier && e.destination.city && e.destination.state_abbr == @@non_uni
         end
     end
 end
