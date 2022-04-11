@@ -9,16 +9,11 @@ function SearchBar() {
     const [destState, setDestState] = useState('')
     function handleSearch(e) {
         e.preventDefault()
-        //console.log(formVals)
         fetch(`http://localhost:3000/search/?origin_city=${originCity}&origin_state=${originState}&carrier=${carrier}&destination_city=${destCity}&destination_state=${destState}`)
             .then(r => r.json())
-            .then(r => {
-                if (r.ok) {
-                    console.log(r)
-                }
-            })
+            .then(r => console.log(r))
 
-        e.target.reset()
+        //e.target.reset()
     }
 
 
