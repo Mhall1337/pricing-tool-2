@@ -11,17 +11,16 @@ function Shipments() {
             .catch(error => console.log(error))
     }, [])
 
-    
+    console.log(shipments.map(shipment => shipment))
     
     return (
         <div>
             <h3>Shipments</h3>
-            <SearchBar />
+            <SearchBar setShipments={setShipments} shipments={shipments}/>
             <table className='grid-container'>
                 <TableHead setShipments={setShipments} shipments={shipments}/>
                 <tbody>
                     {shipments.map((shipment, index) => {
-                        //console.log(shipment)
                         const { commodity, carrier, dispatcher, miles, rate, destination, origin } = shipment
                         return (
                             <tr key={index}>
