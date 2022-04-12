@@ -11,7 +11,6 @@ function Shipments() {
             .catch(error => console.log(error))
     }, [])
 
-    console.log(shipments.map(shipment => shipment))
     
     return (
         <div>

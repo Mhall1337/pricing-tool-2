@@ -1,22 +1,21 @@
 
 import { useState } from "react"
 
-function SearchBar({setShipments, shipments}) {
+function SearchBar({ setShipments, shipments }) {
     const [originCity, setOriginCity] = useState('')
     const [originState, setOriginState] = useState('')
     const [carrier, setCarrier] = useState('')
     const [destCity, setDestCity] = useState('')
     const [destState, setDestState] = useState('')
     function handleSearch(e) {
+
         e.preventDefault()
-        //console.log(shipments)
+
+        e.target.reset()
+
         fetch(`http://localhost:3000/search/?origin_city=${originCity}&origin_state=${originState}&carrier=${carrier}&destination_city=${destCity}&destination_state=${destState}`)
             .then(r => r.json())
-            .then(r => {
-                console.log(r)
-                setShipments([...r])})
-
-        //e.target.reset()
+            .then(r => setShipments([...r]))
     }
 
 
