@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react"
 import SearchBar from "./searchBar"
 import TableHead from "./tableHead"
-function Shipments() {
+
+function Shipments() {  
     const [shipments, setShipments] = useState([])
 
     useEffect(() => {
@@ -10,7 +11,7 @@ function Shipments() {
             .then(r => setShipments(r))
             .catch(error => console.log(error))
     }, [])
-
+    
     
     return (
         <div>

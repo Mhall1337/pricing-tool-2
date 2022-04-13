@@ -26,7 +26,6 @@ const [sortOrder, setSortOrder] = useState(true)
                     break;
             }
             
-        
         setShipments([...order])
     }
 
