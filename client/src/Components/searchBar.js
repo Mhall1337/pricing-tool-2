@@ -1,7 +1,7 @@
 
 import { useState } from "react"
 
-function SearchBar({ setShipments, shipments }) {
+function SearchBar({ setShipments }) {
     const [originCity, setOriginCity] = useState('')
     const [originState, setOriginState] = useState('')
     const [carrier, setCarrier] = useState('')
@@ -11,11 +11,14 @@ function SearchBar({ setShipments, shipments }) {
 
         e.preventDefault()
 
-        e.target.reset()
-
         fetch(`http://localhost:3000/search/?origin_city=${originCity}&origin_state=${originState}&carrier=${carrier}&destination_city=${destCity}&destination_state=${destState}`)
             .then(r => r.json())
             .then(r => setShipments([...r]))
+            setOriginCity('')
+            setOriginState('')
+            setCarrier('')
+            setDestCity('')
+            setDestState('')
     }
 
 

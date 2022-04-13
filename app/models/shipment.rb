@@ -3,38 +3,21 @@ class Shipment < ApplicationRecord
   belongs_to :dispatcher
   belongs_to :origin, class_name: "Location"
   belongs_to :destination, class_name: "Location"
-  #@@uni_arr
-  @non_uni = []
+ 
+  @non_unique = []
 
-  # def self.unique_shipments
-  #    unique = self.all.map{|e| [e.origin.city, e.origin.state_abbr, e.carrier, e.destination.city, e.destination.state_abbr]}
-  #    self.all.map.with_index{|shipment, i| shipment if [shipment.origin.city, shipment.origin.state_abbr, shipment.carrier, shipment.destination.city, shipment.destination.state_abbr] == unique[i]}
-  # end
-
-  # def self.uni_two
-  #     #@@uni_arr = []
-  #     # @@non_uni =[]
-  #     unique = self.all.map{|e| [e.origin.city, e.origin.state_abbr, e.carrier, e.destination.city, e.destination.state_abbr]}.uniq
-  #     self.all.each.with_index do |shipment, i|
-  #         if [shipment.origin.city, shipment.origin.state_abbr, shipment.carrier, shipment.destination.city, shipment.destination.state_abbr] == unique[i]
-  #           #  @@uni_arr << shipment
-  #         else
-  #             #@@non_uni << shipment
-  #             i+=1
-  #         end
-  #     end
-  # end
+  
   def self.search_shipments(params)
-    origin = Location.where("city = ? AND state_abbr = ?", params[:origin_city], params[:origin_state])
-    destination = Location.where("city = ? AND state_abbr = ?", params[:destination_city], params[:destination_state])
-    carrier = Carrier.where("carrier_name = ?", params[:carrier])
+    origin = Location.where("city = ? AND state_abbr = ?", params[:origin_city].titleize, params[:origin_state].upcase)
+    destination = Location.where("city = ? AND state_abbr = ?", params[:destination_city].titleize, params[:destination_state].upcase)
+    carrier = Carrier.where("carrier_name = ?", params[:carrier].titleize)
     shipments = Shipment.where("origin_id = ? AND destination_id = ?", origin.ids[0], destination.ids[0])
     shipments
   end
 
   def self.find_duplicates
     shipments = Shipment.all.map { |e| [e.origin, e.carrier, e.destination] }
-    @@non_uni = shipments.select.with_index do |e, i|
+    @@non_unique = shipments.select.with_index do |e, i|
       i != shipments.index(e)
     end
     binding.break

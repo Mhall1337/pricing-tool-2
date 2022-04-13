@@ -6,13 +6,16 @@ class ShipmentsController < ApplicationController
   end
 
    def search
-    render json: Shipment.search_shipments(strongParams), include: [:dispatcher, :carrier, :origin, :destination]
+
+    
+
+    render json: Shipment.search_shipments(permitParams), include: [:dispatcher, :carrier, :origin, :destination]
     #binding.break
   end
 
   private
 
-  def strongParams
+  def permitParams
     params.permit(:origin_city, :origin_state , :destination_city, :destination_state, :carrier)
     
   end
