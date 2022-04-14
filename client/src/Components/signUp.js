@@ -1,5 +1,5 @@
 import { useState } from "react"
-import './signup.css'
+//import './src/signup.css'
 
 function SignUp() {
     const [userName, setUserName] = useState('')
@@ -23,9 +23,9 @@ function SignUp() {
 
     return (
         <div>
-            <div class="background">
-                <div class="shape"></div>
-                <div class="shape"></div>
+            <div className="background">
+                <div className="shape"></div>
+                <div className="shape"></div>
             </div>
             <form onSubmit={handleSubmit} className="signupForm">
                 <h3>SIGN UP</h3>
