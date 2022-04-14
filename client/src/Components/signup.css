@@ -80,7 +80,7 @@ input{
 ::placeholder{
     color: #e5e5e5;
 }
-button{
+.submit{
     margin-top: 50px;
     width: 100%;
     background-color: #faf8f8;

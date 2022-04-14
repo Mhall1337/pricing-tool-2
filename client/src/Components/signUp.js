@@ -23,11 +23,14 @@ function SignUp() {
 
     return (
         <div>
-
+            <div class="background">
+                <div class="shape"></div>
+                <div class="shape"></div>
+            </div>
             <form onSubmit={handleSubmit} className="signupForm">
-                <h1>SIGN UP</h1>
+                <h3>SIGN UP</h3>
                 <label>Username:  </label>
-                <input type="text" placeholder="username" value={userName} onChange={e => setUserName(e.target.value)}></input>
+                <input type="text" placeholder="Username" value={userName} onChange={e => setUserName(e.target.value)}></input>
                 <br></br>
                 <label>Password:  </label>
                 <input type="text" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)}></input>
@@ -35,8 +38,7 @@ function SignUp() {
                 <label>Confirm Password:  </label>
                 <input type="text" placeholder="Confirm Password" value={confirmPassword} onChange={e => setConfirmPassword(e.target.value)}></input>
                 <br></br>
-                <label>Sing Up  </label>
-                <input type="submit" value="Sign Up"></input>
+                <input type="submit" value="Sign Up" className="submit"></input>
             </form>
         </div>
     )
