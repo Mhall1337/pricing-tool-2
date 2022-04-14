@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   # root "articles#index"
   post '/search', to: "shipments#search"
   get '/search/', to: "shipments#search"
+  post '/signup', to: "users#signup"
 end

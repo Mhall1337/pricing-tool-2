@@ -12,6 +12,7 @@ class Shipment < ApplicationRecord
     destination = Location.where("city = ? AND state_abbr = ?", params[:destination_city].titleize, params[:destination_state].upcase)
     carrier = Carrier.where("carrier_name = ?", params[:carrier].titleize)
     shipments = Shipment.where("origin_id = ? AND destination_id = ?", origin.ids[0], destination.ids[0])
+    binding.break
     shipments
   end
 
@@ -20,7 +21,6 @@ class Shipment < ApplicationRecord
     @@non_unique = shipments.select.with_index do |e, i|
       i != shipments.index(e)
     end
-    binding.break
   end
 
   def handle_duplicate

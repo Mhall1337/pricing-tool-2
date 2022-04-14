@@ -11,9 +11,9 @@ function App() {
     <div>
       <NavBar />
       <Switch>
-        <Route path="/map">
+        {/* <Route path="/map">
           <Map />
-        </Route>
+        </Route> */}
         <Route path="/signup">
           <SignUp />
         </Route>
