@@ -8,17 +8,18 @@ function SignUp() {
 
     function handleSubmit(e) {
         e.preventDefault()
-        console.log('clicked')
-        //   fetch('http://localhost:3000/signup',{
-        //       method: 'POST',
-        //       headers:{
-        //           'Content-Type': 'application/json'
-        //       },
-        //       body: JSON.stringify({username: userName, password: password, confirmPassword: confirmPassword})
-        //   })
-        //   .then(r => r.json())
-        //   .then(r => console.log(r))
-        //   .catch(error => console.log(error))
+       // console.log('clicked')
+          fetch('http://localhost:3000/signup',{
+              method: 'POST',
+              headers:{
+                  'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({username: userName, password: password, confirmPassword: confirmPassword})
+          })
+          .then(r => r.json())
+          .then(r => console.log(r))
+          .catch(error => console.log(error))
+          e.target.reset()
     }
 
     return (
