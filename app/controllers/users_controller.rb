@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    
+    skip_before_action :authorize, only: [:signup]
     def signup
         user = User.new_user(params)
         if user.valid?

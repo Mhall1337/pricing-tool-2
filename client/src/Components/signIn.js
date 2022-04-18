@@ -41,7 +41,7 @@ export default function SignIn(){
                 <input type="text" placeholder="Username" value={userName} onChange={e => setUserName(e.target.value)}></input>
                 <br></br>
                 <label>Password:  </label>
-                <input type="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)}></input>
+                <input type="text" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)}></input>
                 <br></br>
                 <input type="submit" value="Sign In" className="submit"></input>
             </form>
