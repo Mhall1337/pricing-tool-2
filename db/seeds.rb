@@ -24,6 +24,8 @@ Location.create(state_abbr: "MN", city: "Minneapolis", state_long_name: "Minneso
 Location.create(state_abbr: "MO", city: "St. Louis", state_long_name: "Missouri")
 Location.create(state_abbr: "MI", city: "Detroit", state_long_name: "Michigan")
 Location.create(state_abbr: "AL", city: "Mobile", state_long_name: "Alabama")
+Location.create(state_abbr: "IN", city: "Gary", state_long_name: "Indiana")
+
 
 
 50.times do

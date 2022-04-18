@@ -7,5 +7,8 @@ class Location < ApplicationRecord
         [self.city, self.state_abbr].compact.join(', ')
     end
 
+    def find_nearby_location miles
+        self.nearbys(miles)
+    end
     
 end
