@@ -12,7 +12,6 @@ class Shipment < ApplicationRecord
     destination = Location.where("city = ? AND state_abbr = ?", params[:destination_city].titleize, params[:destination_state].upcase)
     carrier = Carrier.where("carrier_name = ?", params[:carrier].titleize)
     shipments = Shipment.where("origin_id = ? AND destination_id = ?", origin.ids[0], destination.ids[0])
-    binding.break
     shipments
   end
 
@@ -24,8 +23,7 @@ class Shipment < ApplicationRecord
   end
 
   def handle_duplicate
-    Shipment.all.select do |e|
-      e.origin.city && e.origin.state_abbr && e.carrier && e.destination.city && e.destination.state_abbr == @@non_uni
-    end
+    
+   
   end
 end

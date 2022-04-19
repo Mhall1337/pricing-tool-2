@@ -1,5 +1,5 @@
 import { useState } from "react"
-//import './src/signup.css'
+//import './signup.css'
 
 function SignUp() {
     const [userName, setUserName] = useState('')
@@ -23,21 +23,21 @@ function SignUp() {
     }
 
     return (
-        <div>
+        <div className="signUp">
             <div className="background">
                 <div className="shape"></div>
                 <div className="shape"></div>
             </div>
             <form onSubmit={handleSubmit} className="signupForm">
                 <h3>SIGN UP</h3>
-                <label>Username:  </label>
-                <input type="text" placeholder="Username" value={userName} onChange={e => setUserName(e.target.value)}></input>
+                <label className="signupLable">Username:  </label>
+                <input type="text" placeholder="Username" value={userName} onChange={e => setUserName(e.target.value)} className="signupInput"></input>
                 <br></br>
-                <label>Password:  </label>
-                <input type="text" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)}></input>
+                <label className="signupLable">Password:  </label>
+                <input type="text" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} className="signupInput"></input>
                 <br></br>
-                <label>Confirm Password:  </label>
-                <input type="text" placeholder="Confirm Password" value={confirmPassword} onChange={e => setConfirmPassword(e.target.value)}></input>
+                <label className="signupLable">Confirm Password:  </label>
+                <input type="text" placeholder="Confirm Password" value={confirmPassword} onChange={e => setConfirmPassword(e.target.value)} className="signupInput"></input>
                 <br></br>
                 <input type="submit" value="Sign Up" className="submit"></input>
             </form>

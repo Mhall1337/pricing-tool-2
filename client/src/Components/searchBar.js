@@ -1,4 +1,4 @@
-
+import SearchByLocation from "./searchByLocationRadius"
 import { useState } from "react"
 
 function SearchBar({ setShipments }) {
@@ -27,6 +27,7 @@ function SearchBar({ setShipments }) {
     return (
         <div>
             <hr></hr>
+            <SearchByLocation />
             <div>Search</div>
             <form onSubmit={handleSearch} >
                 <label>Origin City: </label>

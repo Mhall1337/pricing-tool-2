@@ -7,8 +7,9 @@ class Location < ApplicationRecord
         [self.city, self.state_abbr].compact.join(', ')
     end
 
-    def find_nearby_location miles
-        self.nearbys(miles)
+    def find_nearby_locations miles
+       nearby_locations =  self.nearbys(miles)
+       Shipment.where(origin_id: nearby_locations.ids)
     end
     
 end
