@@ -13,4 +13,5 @@ Rails.application.routes.draw do
   post '/signup', to: "users#signup"
   post '/signin', to: "sessions#signin"
   delete '/signout', to: "sessions#signout"
+  post '/radius', to: "locations#show_nearby_locations"
 end

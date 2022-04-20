@@ -1,3 +1,4 @@
+
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
@@ -49,3 +50,4 @@ group :development do
 end
 
 gem 'geocoder', '~> 1.7', '>= 1.7.5'
+gem "net-http"

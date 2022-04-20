@@ -4,8 +4,10 @@ class Shipment < ApplicationRecord
   belongs_to :origin, class_name: "Location"
   belongs_to :destination, class_name: "Location"
  
-  @non_unique = []
-
+  @@non_unique = []
+  def self.default_cities
+    Location.all.map{|e| e.city}
+  end 
   
   def self.search_shipments(params)
     origin = Location.where("city = ? AND state_abbr = ?", params[:origin_city].titleize, params[:origin_state].upcase)
