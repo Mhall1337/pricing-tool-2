@@ -29,7 +29,7 @@ Location.create(state_abbr: "IN", city: "Gary", state_long_name: "Indiana")
 
 
 50.times do
-  Shipment.create(commodity: Faker::Commerce.material, trailer_type: "FB", carrier_id: rand(1..11), miles: rand(1..1000), rate: rand(1..4000), driver_name: Faker::Name.name, driver_phone_number: Faker::PhoneNumber.phone_number, dispatcher_id: Dispatcher.ids.sample, origin_id: rand(1..10), destination_id: rand(1..10))
+  Shipment.create(commodity: Faker::Commerce.material, trailer_type: "FB", carrier_id: rand(1..11), driver_name: Faker::Name.name, driver_phone_number: Faker::PhoneNumber.phone_number, dispatcher_id: Dispatcher.ids.sample, origin_id: rand(1..10), destination_id: rand(1..10))
 end
 
 

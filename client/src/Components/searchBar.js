@@ -14,11 +14,11 @@ function SearchBar({ setShipments }) {
         fetch(`http://localhost:3000/search/?origin_city=${originCity}&origin_state=${originState}&carrier=${carrier}&destination_city=${destCity}&destination_state=${destState}`)
             .then(r => r.json())
             .then(r => setShipments([...r]))
-            setOriginCity('')
-            setOriginState('')
-            setCarrier('')
-            setDestCity('')
-            setDestState('')
+            // setOriginCity('')
+            // setOriginState('')
+            // setCarrier('')
+            // setDestCity('')
+            // setDestState('')
     }
 
 

@@ -4,6 +4,8 @@ class Location < ApplicationRecord
    # validates :address, uniqueness: true
     after_validation :geocode
 
+     
+
     def address
         [self.city, self.state_abbr].compact.join(', ')
     end
