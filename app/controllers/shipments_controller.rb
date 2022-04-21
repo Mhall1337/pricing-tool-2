@@ -1,6 +1,6 @@
 class ShipmentsController < ApplicationController
 
-
+  
   def index
     shipments = Shipment.all
     render json: shipments, include: [:dispatcher, :carrier, :origin, :destination]
@@ -13,7 +13,9 @@ class ShipmentsController < ApplicationController
   private
 
   def permitParams
-    params.permit(:origin_city, :origin_state, :destination_city, :destination_state, :carrier)
+    defaults = {origin_city: "Birmingham"}
+    params.permit(:origin_city, :origin_state, :destination_city, :destination_state, :carrier).reverse_merge(defaults)
+    
   end
 
  
