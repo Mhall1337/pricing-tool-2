@@ -1,5 +1,8 @@
 import { useState } from "react"
-export default function SearchByLocationRadius() {
+
+
+export default function SearchByLocationRadius({ setShipments }) {
+
     const [originCity, setOriginCity] = useState('')
     const [originState, setOriginState] = useState('')
     const [miles, setMiles] = useState(0)
@@ -18,7 +21,11 @@ export default function SearchByLocationRadius() {
             })
         })
             .then(r => r.json())
-            .then(r => console.log(r))
+            .then(r =>{
+                console.log(r)
+                setShipments([...r])
+            })
+            .catch(e => console.log(e))
     }
 
     return (

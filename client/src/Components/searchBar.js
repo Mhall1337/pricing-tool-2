@@ -2,7 +2,7 @@ import SearchByLocation from "./searchByLocationRadius"
 import { useState } from "react"
 
 function SearchBar({ setShipments }) {
-    const [originCity, setOriginCity] = useState('')
+    const [originCity, setOriginCity] = useState()
     const [originState, setOriginState] = useState('')
     const [carrier, setCarrier] = useState('')
     const [destCity, setDestCity] = useState('')
@@ -27,7 +27,7 @@ function SearchBar({ setShipments }) {
     return (
         <div>
             <hr></hr>
-            <SearchByLocation />
+            <SearchByLocation setShipments={setShipments}/>
             <div>Search</div>
             <form onSubmit={handleSearch} >
                 <label>Origin City: </label>
