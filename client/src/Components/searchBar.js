@@ -1,16 +1,15 @@
 import SearchByLocation from "./searchByLocationRadius"
-import { useState } from "react"
 
-function SearchBar({ filterOriginCity, filterOriginState, filterDestinationCity, filterDestinationState, filterCarrier }) {
+
+function SearchBar({ filterOriginCity, filterOriginState, filterDestinationCity, filterDestinationState, filterCarrier, resetShipments, setShipments }) {
 
     return (
         <div>
             <hr></hr>
-            <SearchByLocation />
+            <SearchByLocation setShipments={setShipments}/>
             <div>Search</div>
-
             <label>Origin City: </label>
-            <input placeholder="Search Origin City" type='text' name="origin_city" onChange={(e) => { filterOriginCity(e) }}></input>
+            <input placeholder="Search Origin City" type='text' name="origin_city" onChange={(e) => filterOriginCity(e)}></input>
             <label> Origin State: </label>
             <input placeholder="Search Origin State" type='text' name="origin_state" onChange={(e) => filterOriginState(e)}></input>
             <label> Destination City: </label>
@@ -19,8 +18,7 @@ function SearchBar({ filterOriginCity, filterOriginState, filterDestinationCity,
             <input placeholder="Search Destination State" type='text' name="destination_state" onChange={(e) => filterDestinationState(e)}></input>
             <label> Carrier: </label>
             <input placeholder="Search Carrier" name="carrier" onChange={(e) => filterCarrier(e)}></input>
-            <input type="submit" value='submit'></input>
-
+            <button onClick={resetShipments}>reset</button>
             <hr></hr>
         </div>
 
