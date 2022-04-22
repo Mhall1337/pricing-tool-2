@@ -1,47 +1,26 @@
 import SearchByLocation from "./searchByLocationRadius"
 import { useState } from "react"
 
-function SearchBar({ setShipments }) {
-    const [originCity, setOriginCity] = useState()
-    const [originState, setOriginState] = useState('')
-    const [carrier, setCarrier] = useState('')
-    const [destCity, setDestCity] = useState('')
-    const [destState, setDestState] = useState('')
-    function handleSearch(e) {
-
-        e.preventDefault()
-
-        fetch(`http://localhost:3000/search/?origin_city=${originCity}&origin_state=${originState}&carrier=${carrier}&destination_city=${destCity}&destination_state=${destState}`)
-            .then(r => r.json())
-            .then(r => setShipments([...r]))
-            // setOriginCity('')
-            // setOriginState('')
-            // setCarrier('')
-            // setDestCity('')
-            // setDestState('')
-    }
-
-
-
+function SearchBar({ filterOriginCity, filterOriginState, filterDestinationCity, filterDestinationState, filterCarrier }) {
 
     return (
         <div>
             <hr></hr>
-            <SearchByLocation setShipments={setShipments}/>
+            <SearchByLocation />
             <div>Search</div>
-            <form onSubmit={handleSearch} >
-                <label>Origin City: </label>
-                <input placeholder="Search Origin City" type='text' name="origin_city" value={originCity} onChange={(e) => setOriginCity(e.target.value)}></input>
-                <label> Origin State: </label>
-                <input placeholder="Search Origin State" type='text' name="origin_state" value={originState} onChange={(e) => setOriginState(e.target.value)}></input>
-                <label> Destination City: </label>
-                <input placeholder="Search Destination City" type='text' name="destination_city" value={destCity} onChange={(e) => setDestCity(e.target.value)}></input>
-                <label> Destination State: </label>
-                <input placeholder="Search Destination State" type='text' name="destination_state" value={destState} onChange={(e) => setDestState(e.target.value)}></input>
-                <label> Carrier: </label>
-                <input placeholder="Search Carrier" name="carrier" value={carrier} onChange={(e) => setCarrier(e.target.value)}></input>
-                <input type="submit" value='submit'></input>
-            </form >
+
+            <label>Origin City: </label>
+            <input placeholder="Search Origin City" type='text' name="origin_city" onChange={(e) => { filterOriginCity(e) }}></input>
+            <label> Origin State: </label>
+            <input placeholder="Search Origin State" type='text' name="origin_state" onChange={(e) => filterOriginState(e)}></input>
+            <label> Destination City: </label>
+            <input placeholder="Search Destination City" type='text' name="destination_city" onChange={(e) => filterDestinationCity(e)}></input>
+            <label> Destination State: </label>
+            <input placeholder="Search Destination State" type='text' name="destination_state" onChange={(e) => filterDestinationState(e)}></input>
+            <label> Carrier: </label>
+            <input placeholder="Search Carrier" name="carrier" onChange={(e) => filterCarrier(e)}></input>
+            <input type="submit" value='submit'></input>
+
             <hr></hr>
         </div>
 
