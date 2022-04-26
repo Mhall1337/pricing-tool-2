@@ -43,7 +43,7 @@ const [sortOrder, setSortOrder] = useState(true)
                 <th>Dispatcher Name</th>
                 <th>Dispatcher Phone Number</th>
                 <th>Dispatcher Email Address</th>
-                <th>Shipment Count</th>
+                {/* <th>Shipment Count</th> */}
             </tr>
         </thead>
     )

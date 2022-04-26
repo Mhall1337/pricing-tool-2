@@ -37,11 +37,11 @@ export default function SignIn(){
             </div>
             <form onSubmit={handleLogin} className="signupForm">
                 <h3>SIGN IN</h3>
-                <label>Username:  </label>
-                <input type="text" placeholder="Username" value={userName} onChange={e => setUserName(e.target.value)}></input>
+                <label className="signupLable">Username:  </label>
+                <input type="text" placeholder="Username" value={userName} onChange={e => setUserName(e.target.value)} className="signupInput"></input>
                 <br></br>
-                <label>Password:  </label>
-                <input type="text" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)}></input>
+                <label className="signupLable">Password:  </label>
+                <input type="text" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} className="signupInput"></input>
                 <br></br>
                 <input type="submit" value="Sign In" className="submit"></input>
             </form>
