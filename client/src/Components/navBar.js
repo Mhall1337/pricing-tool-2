@@ -1,12 +1,21 @@
 import { NavLink } from "react-router-dom";
 
-function NavBar(){
-    return(
+function NavBar() {
+    return (
         <div className="navBar">
-            <NavLink to="/" exact className="navBar"> Shipments </NavLink>
-            <NavLink to="/map" exact className="navBar"> Map </NavLink>
-            <NavLink to="/signup" exact className="navBar"> SignUp </NavLink>
-            <NavLink to="/signin" exact className='navbar'> Sign In </NavLink>
+            <ul>
+                <li>
+                    <NavLink to="/" exact className="navBar"> Shipments </NavLink>
+                </li>
+                <li><NavLink to="/map" exact className="navBar"> Map </NavLink>
+                </li>
+                <li className="right-nav">
+                <NavLink to="/signup" exact className="navBar"> SignUp </NavLink>
+                </li>
+                <li className="right-nav">
+                <NavLink to="/signin" exact className='navbar'> Sign In </NavLink>
+                </li>
+            </ul>
         </div>
     )
 }

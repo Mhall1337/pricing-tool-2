@@ -32,18 +32,18 @@ const [sortOrder, setSortOrder] = useState(true)
     return (
         <thead>
             <tr>
-                <th className="grid-item" onClick={sortColumn}>Origin City</th>
-                <th className="grid-item" onClick={sortColumn}>Origin State</th>
-                <th className="grid-item">Commodity</th>
-                <th className="grid-item" onClick={sortColumn}>Carrier Name</th>
-                <th className="grid-item" onClick={sortColumn}>Dest. City</th>
-                <th className="grid-item" onClick={sortColumn}>Dest. State</th>
-                <th className="grid-item">Miles</th>
-                <th className="grid-item">Rate</th>
-                <th className="grid-item">Dispatcher Name</th>
-                <th className="grid-item">Dispatcher Phone Number</th>
-                <th className="grid-item">Dispatcher Email Address</th>
-                <th className="grid-item">Shipment Count</th>
+                <th onClick={sortColumn}>Origin City</th>
+                <th onClick={sortColumn}>Origin State</th>
+                <th>Commodity</th>
+                <th onClick={sortColumn}>Carrier Name</th>
+                <th onClick={sortColumn}>Dest. City</th>
+                <th onClick={sortColumn}>Dest. State</th>
+                <th>Miles</th>
+                <th>Rate</th>
+                <th>Dispatcher Name</th>
+                <th>Dispatcher Phone Number</th>
+                <th>Dispatcher Email Address</th>
+                <th>Shipment Count</th>
             </tr>
         </thead>
     )
