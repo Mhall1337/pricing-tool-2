@@ -15,7 +15,29 @@
   
   color: "white";
 } 
+th, td {
+  border: 1px solid black;
+}
+table {
+  border-collapse: collapse;
+  text-align: center;
+	vertical-align: middle;
+}
+th{
+  background-color: #333;
+  color: white;
+  font-size: 0.875rem;
+	text-transform: uppercase;
+	letter-spacing: 2%;
+}
 
+tbody tr:nth-child(odd) {
+  background-color: #fff;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #eee;
+}
 /* .signupForm{
    height: 520px;
     width: 400px;
