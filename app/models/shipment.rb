@@ -6,8 +6,6 @@ class Shipment < ApplicationRecord
 
   after_initialize :calculate_rate_and_miles
 
-  @@non_unique = []
-
   def calculate_rate_and_miles
     self.miles = self.origin.distance_to(self.destination)
     self.rate = self.miles * 3.5
@@ -21,7 +19,7 @@ class Shipment < ApplicationRecord
     end
   end
 
-  def handle_duplicate
-  end
+  # def handle_duplicate
+  # end
 
 end
