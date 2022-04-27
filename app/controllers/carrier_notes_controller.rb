@@ -1,7 +1,7 @@
 class CarrierNotesController < ApplicationController
     def index
         notes = CarrierNote.all
-        render json: notes
+        render json: notes, include: [:carrier]
     end
 
     def create
