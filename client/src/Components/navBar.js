@@ -9,11 +9,14 @@ function NavBar() {
                 </li>
                 <li><NavLink to="/map" exact className="navBar"> Map </NavLink>
                 </li>
-                <li className="right-nav">
-                <NavLink to="/signup" exact className="navBar"> SignUp </NavLink>
+                <li>
+                    <NavLink to="/carrier-list" exact className='navbar'>Carrier List</NavLink>
                 </li>
                 <li className="right-nav">
-                <NavLink to="/signin" exact className='navbar'> Sign In </NavLink>
+                    <NavLink to="/signup" exact className="navBar"> SignUp </NavLink>
+                </li>
+                <li className="right-nav">
+                    <NavLink to="/signin" exact className='navbar'> Sign In </NavLink>
                 </li>
             </ul>
         </div>

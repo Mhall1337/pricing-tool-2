@@ -7,7 +7,7 @@ function SearchBar({ filterOriginCity, filterOriginState, filterDestinationCity,
         <div className="search-bar">
             <hr></hr>
             {/* <SearchByLocation setShipments={setShipments}/> */}
-            <div>Search</div>
+            <div><strong>Search Shipments</strong></div>
             <label>Origin City: </label>
             <input placeholder="Search Origin City" type='text' name="origin_city" onChange={(e) => filterOriginCity(e)}></input>
             <label> Origin State: </label>

@@ -150,9 +150,7 @@ body{
   font-size: 14px;
   font-weight: 300;
 }
-/* ::placeholder{
-  color: #e5e5e5;
-} */
+
 .submit{
   margin-top: 50px;
   width: 100%;
@@ -165,7 +163,9 @@ body{
   cursor: pointer;
 }
 
-
+.carrier-list{
+  color:#faf8f8
+}
 
 
 

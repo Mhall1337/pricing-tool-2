@@ -5,6 +5,7 @@ import Map from './Components/map';
 import NavBar from './Components/navBar';
 import SignUp from './Components/signUp';
 import SignIn from './Components/signIn';
+import CarrierList from './Components/carrierList';
 
 function App() {
 
@@ -15,6 +16,9 @@ function App() {
         {/* <Route path="/map">
           <Map />
         </Route> */}
+        <Route path="/carrier-list">
+          <CarrierList />
+        </Route>
         <Route path="/signup">
           <SignUp />
         </Route>
