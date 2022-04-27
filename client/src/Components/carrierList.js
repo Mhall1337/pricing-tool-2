@@ -1,21 +1,22 @@
+import { useEffect } from "react"
 import { useState } from "react"
 
 export default function CarrierList() {
 
     const [notes, setNotes] = useState([])
 
-    function getCarrierNotes() {
-        fetch('http://localhost:3000/carrier_notes')
-            .then(r => r.json())
-            .then(r => {
-                setNotes(r)
-                console.log(r)
-            })
-    }
+    useEffect(()=>
+    fetch('http://localhost:3000/carrier_notes')
+    .then(r => r.json())
+    .then(r => {
+        setNotes(r)
+    })
+    ,[])
+
+
 
     return (
         <div className="carrier-list-container">Carrier List
-            <button onClick={getCarrierNotes}>get</button>
             <div>{
                 notes.map((note, index) =>
                     <div key={index}>
