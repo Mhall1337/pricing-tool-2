@@ -1,0 +1,2 @@
+class CarrierNote < ApplicationRecord
+end
