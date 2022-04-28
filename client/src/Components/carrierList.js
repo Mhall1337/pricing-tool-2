@@ -1,5 +1,6 @@
 import { useEffect } from "react"
 import { useState } from "react"
+import CarrierListForm from "./carrierListForm"
 
 export default function CarrierList() {
 
@@ -13,10 +14,13 @@ export default function CarrierList() {
     })
     ,[])
 
-
+    // function createCarrierNote(){
+    // post new note to db
+    // }
 
     return (
         <div className="carrier-list-container">Carrier List
+        <CarrierListForm />
             <div>{
                 notes.map((note, index) =>
                     <div key={index}>
