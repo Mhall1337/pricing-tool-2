@@ -1,5 +1,4 @@
-import { useEffect } from "react"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import CarrierListForm from "./carrierListForm"
 
 export default function CarrierList() {
