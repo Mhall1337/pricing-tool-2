@@ -8,7 +8,7 @@ export default function SignIn(){
 
     function handleLogin(e) {
         e.preventDefault();
-        fetch("http://localhost:3000/signin", {
+        fetch("/signin", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

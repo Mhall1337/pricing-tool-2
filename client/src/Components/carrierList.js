@@ -13,9 +13,6 @@ export default function CarrierList() {
     })
     ,[])
 
-    // function createCarrierNote(){
-    // post new note to db
-    // }
 
     return (
         <div className="carrier-list-container">Carrier List

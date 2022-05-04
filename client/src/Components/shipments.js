@@ -7,9 +7,10 @@ function Shipments() {
     const [filterShipments, setFilterShipments] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:3000/shipments')
+        fetch('/shipments')
             .then(r => r.json())
-            .then(r => {setShipments(r); setFilterShipments(r)})
+            .then(r => {
+             setShipments(r); setFilterShipments(r); console.log(r.map(r => r))})
             .catch(error => console.log(error))
     }, [])
 
@@ -22,7 +23,7 @@ function Shipments() {
         setShipments(result)
     }
     function filterDestinationCity(e){
-        const result = shipments.filter(shipment => shipment.destination.cit.toLowerCase().includes(e.target.value))
+        const result = shipments.filter(shipment => shipment.destination.city.toLowerCase().includes(e.target.value))
         setShipments(result)
     }
     function filterDestinationState(e){
@@ -42,7 +43,7 @@ function Shipments() {
         document.querySelector("#root > div > div:nth-child(2) > div > input:nth-child(13)").value = ""
     }
 
-
+    //console.log(shipments.map(ship => ship.shipment.origin.city))
     return (
         <div>
             <h3>Shipments</h3>
@@ -50,7 +51,8 @@ function Shipments() {
             <table className='grid-container'>
                 <TableHead setShipments={setShipments} shipments={shipments} />
                 <tbody>
-                    {shipments.map((shipment, index) => {
+                    {/* {shipments.map((shipment, index) => {
+                        console.log(shipment.origin.city)
                         const { commodity, carrier, dispatcher, miles, rate, destination, origin } = shipment
                         return (
                             <tr className="table-row" key={index}>
@@ -67,7 +69,7 @@ function Shipments() {
                                 <td className="table-data">{dispatcher.email}</td>
                             </tr>
                         )
-                    })}
+                    })} */}
                 </tbody>
             </table>
         </div>

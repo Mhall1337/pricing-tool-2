@@ -23,7 +23,7 @@ export default function CarrierListForm() {
         e.preventDefault()
         const selectCarrier = e.target[1][0].value
 
-        fetch("http://localhost:3000/carriers", {
+        fetch("http://localhost:3000/carrier_notes", {
             method: "POST",
             headers: {
                 'Content-Type': "application/JSON"

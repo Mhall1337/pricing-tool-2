@@ -51,3 +51,4 @@ end
 
 gem 'geocoder', '~> 1.7', '>= 1.7.5'
 gem "net-http"
+gem 'activerecord-session_store'
