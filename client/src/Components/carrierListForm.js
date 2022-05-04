@@ -3,7 +3,7 @@ import { useState } from "react"
 
 export default function CarrierListForm({setNotes, notes}) {
 
-    const [inputCarrier, setInputCarrier] = useState("")
+    const [inputCarrier, setInputCarrier] = useState('')
     const [note, setNote] = useState('')
     const [select, setSelect] = useState([])
     const [carriers, setCarriers] = useState([])
@@ -34,12 +34,13 @@ export default function CarrierListForm({setNotes, notes}) {
             })
         })
         .then(r => r.json())
-        .then(r => console.log([...notes, r]))
+        .then(r => setNotes([r, ...notes]))
     }
-
+    //console.log(notes.map(note => note.note))
     return (
-        <div>
-            <form onChange={changeSelect} onSubmit={postNote}>
+        <div className="search-bar">
+            <hr></hr>
+            <form onChange={changeSelect} onSubmit={postNote} className="carrier-list-form">
                 <label>Carrier Name: </label>
                 <input type="text" placeholder="Carrier Name" value={inputCarrier} onChange={e => setInputCarrier(e.target.value)}></input>
                 <select>
@@ -49,6 +50,7 @@ export default function CarrierListForm({setNotes, notes}) {
                 <textarea value={note} onChange={e => setNote(e.target.value)}>needs a value attribute</textarea>
                 <input type="submit"></input>
             </form>
+            <hr></hr>
         </div>
     )
 }

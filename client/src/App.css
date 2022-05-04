@@ -166,7 +166,10 @@ body{
 .carrier-list-container{
   color:#faf8f8
 }
-
+.search-bar .carrier-list-form{
+  color: black;
+  
+}
 .map-container{
   color: white
 }

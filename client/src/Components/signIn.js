@@ -1,7 +1,7 @@
 import { useState } from "react"
 
 
-export default function SignIn(){
+export default function SignIn({setUser}){
     const [userName, setUserName] = useState('')
     const [password, setPassword] = useState('')
 
@@ -20,12 +20,12 @@ export default function SignIn(){
         }).then(r => {
           if(r.ok){
             return r.json().then(user =>  {
+              setUser([user])
               setUserName("")
               setPassword("")
-              console.log(user)
           })}
           else{
-            //alert("Unauthorized username/password")
+            alert("Unauthorized username/password")
         }})
       }
 

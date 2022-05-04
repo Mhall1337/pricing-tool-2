@@ -10,7 +10,6 @@ function Map() {
             <iframe className="map"
                 width="600"
                 height="450"
-                //style="border:0"
                 loading="lazy"
                 //allowfullscreen
                 referrerPolicy="no-referrer-when-downgrade"
@@ -24,6 +23,7 @@ function Map() {
                     {shipments.map((shipment, index) => {
 
                         const { commodity, carrier, dispatcher, miles, rate, destination, origin } = shipment
+
                         return (
                             <tr className="table-row" key={index}>
                                 <td className="table-data">{origin.city}</td>
