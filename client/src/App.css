@@ -43,7 +43,7 @@ tbody tr:nth-child(even) {
 .search-bar{
   background-color: #eee;
   text-align: center;
-  padding: 7px;
+  /* padding: 7px; */
 }
 ul {
   list-style-type: none;
@@ -170,15 +170,16 @@ body{
 .map-container{
   color: white
 }
-div, iframe {
-  
-}
+
 
 iframe {
     display: block;
-    border-style:5pm;
+    /* border-style:5pm; */
     width: 1000px;
     height: 500px;
     margin: 0 auto;
-    background-color: #777;
+    /* background-color: #777; */
+}
+.map{
+  padding: 10px
 }

@@ -30,6 +30,7 @@ export default function SearchByLocationRadius({ setShipments }) {
 
     return (
         <div className="search-bar">
+            <hr></hr>
            <strong> Search in a radius from Origin:</strong>
             <form onSubmit={searchRadius} >
                 <label>Origin City</label>
@@ -40,6 +41,7 @@ export default function SearchByLocationRadius({ setShipments }) {
                 <input type="text" value={miles} onChange={(e) => setMiles(e.target.value)} placeholder='Miles'></input>
                 <input type='submit' value='click me'></input>
             </form>
+            <hr></hr>
         </div>
     )
 }
