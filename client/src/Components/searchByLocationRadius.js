@@ -9,7 +9,7 @@ export default function SearchByLocationRadius({ setShipments }) {
 
     function searchRadius(e) {
         e.preventDefault()
-        fetch('http://localhost:3000/radius', {
+        fetch('/radius', {
             method: 'POST',
             headers: {
                 'Content-Type': "application/JSON"
@@ -29,9 +29,9 @@ export default function SearchByLocationRadius({ setShipments }) {
     }
 
     return (
-        <div>
-            Search in a radius from Origin:
-            <form onSubmit={searchRadius}>
+        <div className="search-bar">
+           <strong> Search in a radius from Origin:</strong>
+            <form onSubmit={searchRadius} >
                 <label>Origin City</label>
                 <input type="text" value={originCity} onChange={(e) => setOriginCity(e.target.value)} placeholder='Origin City'></input>
                 <label>Origin State</label>

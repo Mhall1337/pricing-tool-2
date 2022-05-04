@@ -43,7 +43,7 @@ function Shipments() {
         document.querySelector("#root > div > div:nth-child(2) > div > input:nth-child(13)").value = ""
     }
 
-    //console.log(shipments.map(ship => ship.shipment.origin.city))
+
     return (
         <div>
             <h3>Shipments</h3>

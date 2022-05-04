@@ -1,7 +1,7 @@
 import { useEffect } from "react"
 import { useState } from "react"
 
-export default function CarrierListForm() {
+export default function CarrierListForm({setNotes, notes}) {
 
     const [inputCarrier, setInputCarrier] = useState("")
     const [note, setNote] = useState('')
@@ -9,7 +9,7 @@ export default function CarrierListForm() {
     const [carriers, setCarriers] = useState([])
 
     useEffect(() =>
-        fetch("http://localhost:3000/carriers")
+        fetch("/carriers")
             .then(r => r.json())
             .then(r => setCarriers(r))
         , [])
@@ -23,7 +23,7 @@ export default function CarrierListForm() {
         e.preventDefault()
         const selectCarrier = e.target[1][0].value
 
-        fetch("http://localhost:3000/carrier_notes", {
+        fetch("/carrier_notes", {
             method: "POST",
             headers: {
                 'Content-Type': "application/JSON"
@@ -34,7 +34,7 @@ export default function CarrierListForm() {
             })
         })
         .then(r => r.json())
-        .then(r => console.log(r))
+        .then(r => console.log([...notes, r]))
     }
 
     return (

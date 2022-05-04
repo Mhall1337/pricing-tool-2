@@ -5,8 +5,8 @@ class CarrierNotesController < ApplicationController
   end
 
   def create
-    new_note = @current_user.carrier_note.create(params)
-    binding.break
+    carrier = Carrier.find_by(carrier_name: params[:selectCarrier])
+    new_note = @current_user.carrier_notes.create(carrier_id: carrier.id, note: params[:note])
     render json: new_note, status: :created
   end
 

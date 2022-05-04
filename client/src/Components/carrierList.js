@@ -6,7 +6,7 @@ export default function CarrierList() {
     const [notes, setNotes] = useState([])
 
     useEffect(()=>
-    fetch('http://localhost:3000/carrier_notes')
+    fetch('/carrier_notes')
     .then(r => r.json())
     .then(r => {
         setNotes(r)
@@ -16,7 +16,7 @@ export default function CarrierList() {
 
     return (
         <div className="carrier-list-container">Carrier List
-        <CarrierListForm />
+        <CarrierListForm setNotes={setNotes} notes={notes}/>
             <div>{
                 notes.map((note, index) =>
                     <div key={index}>

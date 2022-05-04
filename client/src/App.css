@@ -43,6 +43,7 @@ tbody tr:nth-child(even) {
 .search-bar{
   background-color: #eee;
   text-align: center;
+  padding: 7px;
 }
 ul {
   list-style-type: none;
@@ -65,7 +66,6 @@ li a {
   padding: 14px 16px;
   text-decoration: none;
 }
-
 
 li a:hover {
   background-color: #111;
@@ -167,20 +167,18 @@ body{
   color:#faf8f8
 }
 
+.map-container{
+  color: white
+}
+div, iframe {
+  
+}
 
-
-
-
-/* .signupForm{
-    height: 520px;
-    width: 400px;
-    position: absolute;
-    transform: translate(-50%,-50%);
-    top: 50%;
-    left: 50%;
-    border-radius: 10px;
-    backdrop-filter: blur(10px);
-    border: 2px solid rgba(255,255,255,0.1);
-    box-shadow: 0 0 40px rgba(8,7,16,0.6);
-    padding: 50px 35px;
-} */
+iframe {
+    display: block;
+    border-style:5pm;
+    width: 1000px;
+    height: 500px;
+    margin: 0 auto;
+    background-color: #777;
+}
