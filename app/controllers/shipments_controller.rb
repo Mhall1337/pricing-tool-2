@@ -3,12 +3,10 @@ class ShipmentsController < ApplicationController
   
   def index
     shipments = Shipment.all
-    render json: shipments, include: [:dispatcher, :carrier, :origin, :destination]
+    render json: shipments, include: [:dispatcher, :carrier, :origin, :destination], status: :created
   end
 
-  # def search
-  #   render json: Shipment.search_shipments(permitParams), include: [:dispatcher, :carrier, :origin, :destination]
-  # end
+
 
   private
 

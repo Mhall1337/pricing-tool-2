@@ -10,7 +10,7 @@ function Shipments() {
         fetch('/shipments')
             .then(r => r.json())
             .then(r => {
-             setShipments(r); setFilterShipments(r); console.log(r.map(r => r))})
+             setShipments(r); setFilterShipments(r)})
             .catch(error => console.log(error))
     }, [])
 
@@ -51,8 +51,8 @@ function Shipments() {
             <table className='grid-container'>
                 <TableHead setShipments={setShipments} shipments={shipments} />
                 <tbody>
-                    {/* {shipments.map((shipment, index) => {
-                        console.log(shipment.origin.city)
+                    {shipments.map((shipment, index) => {
+                        
                         const { commodity, carrier, dispatcher, miles, rate, destination, origin } = shipment
                         return (
                             <tr className="table-row" key={index}>
@@ -69,7 +69,7 @@ function Shipments() {
                                 <td className="table-data">{dispatcher.email}</td>
                             </tr>
                         )
-                    })} */}
+                    })}
                 </tbody>
             </table>
         </div>
