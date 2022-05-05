@@ -14,5 +14,6 @@ Rails.application.routes.draw do
   delete '/signout', to: "sessions#signout"
   post '/radius', to: "locations#show_nearby_locations"
   get "/me", to: "users#show"
-  
+  delete "/logout", to: "sessions#signout"
+
 end

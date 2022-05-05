@@ -17,9 +17,10 @@ function App() {
     // auto-login
     fetch("/me").then((r) => {
       if (r.ok) {
-        r.json().then((user) =>{ 
+        r.json().then((user) => {
           console.log(user)
-          setUser([user])})
+          setUser([user])
+        })
           .catch(error => console.log(error));
       }
     });
@@ -27,15 +28,20 @@ function App() {
   if (!user) {
     return (
       <div>
-        <NavBar user={user}/>
-        <SignIn setUser={setUser} user={user} />
+        <NavBar user={user} />
+        <Route path="/signin">
+          <SignIn setUser={setUser} user={user} />
+        </Route>
+        <Route path="/signup">
+          <SignUp />
+        </Route>
       </div>
     )
   }
   else {
     return (
       <div>
-        <NavBar user={user}/>
+        <NavBar user={user} />
         <Switch>
           <Route path="/map">
             <Map />
@@ -43,14 +49,8 @@ function App() {
           <Route path="/carrier-list">
             <CarrierList />
           </Route>
-          <Route path="/signup">
-            <SignUp />
-          </Route>
-          <Route path="/signin">
-            <SignIn setUser={setUser} user={user}/>
-          </Route>
           <Route path="/logout">
-            <Logout />
+            <Logout setUser={setUser}/>
           </Route>
           <Route exact path="/">
             <Shipments />
