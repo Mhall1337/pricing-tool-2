@@ -7,6 +7,7 @@ import SignUp from './Components/signUp';
 import SignIn from './Components/signIn';
 import CarrierList from './Components/carrierList';
 import { useState, useEffect } from 'react';
+import Logout from './Components/logout';
 
 function App() {
 
@@ -16,7 +17,10 @@ function App() {
     // auto-login
     fetch("/me").then((r) => {
       if (r.ok) {
-        r.json().then((user) => setUser([user])).catch(error => console.log(error));
+        r.json().then((user) =>{ 
+          console.log(user)
+          setUser([user])})
+          .catch(error => console.log(error));
       }
     });
   }, []);
@@ -31,7 +35,7 @@ function App() {
   else {
     return (
       <div>
-        <NavBar />
+        <NavBar user={user}/>
         <Switch>
           <Route path="/map">
             <Map />
@@ -43,7 +47,10 @@ function App() {
             <SignUp />
           </Route>
           <Route path="/signin">
-            <SignIn />
+            <SignIn setUser={setUser} user={user}/>
+          </Route>
+          <Route path="/logout">
+            <Logout />
           </Route>
           <Route exact path="/">
             <Shipments />
