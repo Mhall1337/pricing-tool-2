@@ -10,9 +10,15 @@ class CarrierNotesController < ApplicationController
     render json: new_note, status: :created, include: [:carrier]
   end
 
+  def destroy
+    note = CarrierNote.find_by(id: params[:id])
+    note.destroy
+    head :no_content
+  end
+
   private
 
   def notes_params
-    params.permit(:note, :selectCarrier)
+    params.permit(:note, :selectCarrier, :id)
   end
 end

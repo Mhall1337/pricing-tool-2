@@ -1,12 +1,7 @@
-import { useEffect, useState } from "react"
 import SearchBar from "./searchBar"
 import TableHead from "./tableHead"
 
 function Shipments({shipments, setShipments, filterShipments}) {
-   
-    
-
-  
 
     function filterOriginCity(e) {
         const result = shipments.filter(shipment => shipment.origin.city.toLowerCase().includes(e.target.value.toLowerCase()))

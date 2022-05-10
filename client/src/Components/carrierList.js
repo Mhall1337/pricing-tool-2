@@ -13,6 +13,14 @@ export default function CarrierList() {
     })
     ,[])
 
+    function handleDeleteCarrierNote(id){
+        const notesAfterDelete = notes.filter(note => note.id !== id)
+        setNotes(notesAfterDelete)
+        fetch(`/carrier_notes/${id}`,{
+            method: "DELETE"
+        })
+        .catch(error => console.log(error))
+    }
 
     return (
         <div className="carrier-list-container">Carrier List
@@ -22,6 +30,7 @@ export default function CarrierList() {
                     <div key={index}>
                         <div >{note.carrier.carrier_name}</div>
                         <div >{note.note}</div>
+                        <button onClick={() =>handleDeleteCarrierNote(note.id)}>delete</button>
                     </div>
                 )
             }</div>

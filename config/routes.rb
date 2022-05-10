@@ -14,5 +14,6 @@ Rails.application.routes.draw do
   post '/radius', to: "locations#show_nearby_locations"
   get "/me", to: "users#show"
   delete "/logout", to: "sessions#signout"
+  delete '/carrier_notes/:id', to: "carrier_notes#delete"
 
 end
