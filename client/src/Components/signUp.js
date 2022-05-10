@@ -1,10 +1,14 @@
 import { useState } from "react"
-//import './signup.css'
+import { useHistory } from "react-router"
+
+
+
 
 function SignUp() {
     const [userName, setUserName] = useState('')
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
+    //let history = useHistory()
 
     function handleSubmit(e) {
         e.preventDefault()
@@ -17,7 +21,9 @@ function SignUp() {
               body: JSON.stringify({username: userName, password: password, confirmPassword: confirmPassword})
           })
           .then(r => r.json())
-          .then(r => console.log(r))
+          .then(r => {
+            
+            console.log(r)})
           .catch(error => console.log(error))
           e.target.reset()
     }

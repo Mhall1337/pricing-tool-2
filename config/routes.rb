@@ -11,7 +11,6 @@ Rails.application.routes.draw do
   # root "articles#index"
   post '/signup', to: "users#signup"
   post '/signin', to: "sessions#signin"
-  delete '/signout', to: "sessions#signout"
   post '/radius', to: "locations#show_nearby_locations"
   get "/me", to: "users#show"
   delete "/logout", to: "sessions#signout"

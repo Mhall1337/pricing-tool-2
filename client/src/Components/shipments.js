@@ -2,17 +2,11 @@ import { useEffect, useState } from "react"
 import SearchBar from "./searchBar"
 import TableHead from "./tableHead"
 
-function Shipments() {
-    const [shipments, setShipments] = useState([])
-    const [filterShipments, setFilterShipments] = useState([])
+function Shipments({shipments, setShipments, filterShipments}) {
+   
+    
 
-    useEffect(() => {
-        fetch('/shipments')
-            .then(r => r.json())
-            .then(r => {
-             setShipments(r); setFilterShipments(r)})
-            .catch(error => console.log(error))
-    }, [])
+  
 
     function filterOriginCity(e) {
         const result = shipments.filter(shipment => shipment.origin.city.toLowerCase().includes(e.target.value.toLowerCase()))
@@ -36,11 +30,11 @@ function Shipments() {
     }
     function resetShipments(){
         setShipments(filterShipments)
-        document.querySelector("#root > div > div:nth-child(2) > div > input[type=text]:nth-child(5)").value = ""
-        document.querySelector("#root > div > div:nth-child(2) > div > input[type=text]:nth-child(7)").value = ""
-        document.querySelector("#root > div > div:nth-child(2) > div > input[type=text]:nth-child(9)").value = ""
-        document.querySelector("#root > div > div:nth-child(2) > div > input[type=text]:nth-child(11)").value = ""
-        document.querySelector("#root > div > div:nth-child(2) > div > input:nth-child(13)").value = ""
+        document.querySelector("#root > div > div:nth-child(2) > div > input[type=text]:nth-child(4)").value = ""
+        document.querySelector("#root > div > div:nth-child(2) > div > input[type=text]:nth-child(6)").value = ""
+        document.querySelector("#root > div > div:nth-child(2) > div > input[type=text]:nth-child(8)").value = ""
+        document.querySelector("#root > div > div:nth-child(2) > div > input[type=text]:nth-child(10)").value = ""
+        document.querySelector("#root > div > div:nth-child(2) > div > input:nth-child(12)").value = ""
     }
 
 

@@ -10,8 +10,17 @@ import { useState, useEffect } from 'react';
 import Logout from './Components/logout';
 
 function App() {
+  const [filterShipments, setFilterShipments] = useState([])
+  const [shipments, setShipments] = useState([])
 
   const [user, setUser] = useState(null)
+  useEffect(() => {
+    fetch('/shipments')
+        .then(r => r.json())
+        .then(r => {
+         setShipments(r); setFilterShipments(r)})
+        .catch(error => console.log(error))
+}, [])
 
   useEffect(() => {
     // auto-login
@@ -53,7 +62,7 @@ function App() {
             <Logout setUser={setUser}/>
           </Route>
           <Route exact path="/">
-            <Shipments />
+            <Shipments shipments={shipments} setShipments={setShipments} filterShipments={filterShipments}/>
           </Route>
         </Switch>
       </div>
