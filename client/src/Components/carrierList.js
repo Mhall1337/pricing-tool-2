@@ -22,6 +22,16 @@ export default function CarrierList() {
         .catch(error => console.log(error))
     }
 
+    function handleUpdateCarrierNote(id){
+        fetch(`/carrier_notes/${id}`,{
+            method: 'PATCH',
+            headers:{
+                "content-type": "application/JSON"
+            },
+            body: JSON.stringify({})
+        })
+    }
+
     return (
         <div className="carrier-list-container">Carrier List
         <CarrierListForm setNotes={setNotes} notes={notes}/>
@@ -29,7 +39,7 @@ export default function CarrierList() {
                 notes.map((note, index) =>
                     <div key={index}>
                         <div >{note.carrier.carrier_name}</div>
-                        <div >{note.note}</div>
+                        <textarea >{note.note}</textarea>
                         <button onClick={() =>handleDeleteCarrierNote(note.id)}>delete</button>
                     </div>
                 )

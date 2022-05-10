@@ -16,6 +16,10 @@ class CarrierNotesController < ApplicationController
     head :no_content
   end
 
+  def update
+    binding.break
+  end
+
   private
 
   def notes_params
