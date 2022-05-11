@@ -46,10 +46,13 @@ export default function CarrierList() {
             <div>{
                 notes.map((note, index) =>
                     <div key={index}>
-                        <div >{note.carrier.carrier_name}</div>
-                        <textarea value={note.note} onChange={(e) => setinputVal(e.target.value)}></textarea>
+                        <label>Carrier Name:</label>
+                        <div>{note.carrier.carrier_name}</div>
+                        {/* <textarea value={note.note} onChange={(e) => setinputVal(e.target.value)}></textarea> */}
+                        <label>Carrier Note:</label>
+                        <UpdateOrSaveButton note={note}/>
                         <button onClick={() => handleDeleteCarrierNote(note.id)}>delete</button>
-                        <UpdateOrSaveButton />
+                        
                     </div>
                 )
             }</div>
