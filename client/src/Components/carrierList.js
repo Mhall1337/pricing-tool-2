@@ -5,8 +5,7 @@ import UpdateOrSaveButton from "./updateOrSaveButton.js"
 export default function CarrierList() {
 
     const [notes, setNotes] = useState([])
-    const [inputVal, setinputVal] = useState('')
-    const [tern, setTern] = useState(true)
+
     //  console.log(inputVal)
 
     useEffect(() =>
@@ -17,9 +16,6 @@ export default function CarrierList() {
             })
         , [])
 
-    function ternary() {
-        setTern(!tern)
-    }
 
     function handleDeleteCarrierNote(id) {
         const notesAfterDelete = notes.filter(note => note.id !== id)
@@ -30,14 +26,16 @@ export default function CarrierList() {
             .catch(error => console.log(error))
     }
 
-    function handleUpdateCarrierNote(id) {
+    function handleUpdateCarrierNote(e, id) {
         fetch(`/carrier_notes/${id}`, {
             method: 'PATCH',
             headers: {
                 "content-type": "application/JSON"
             },
-            body: JSON.stringify({})
+            body: JSON.stringify({updatedNote: e.target[0].value})
         })
+        .then(r => r.json())
+        .then(r => console.log(r))
     }
 
     return (
@@ -50,7 +48,7 @@ export default function CarrierList() {
                         <div>{note.carrier.carrier_name}</div>
                         {/* <textarea value={note.note} onChange={(e) => setinputVal(e.target.value)}></textarea> */}
                         <label>Carrier Note:</label>
-                        <UpdateOrSaveButton note={note} />
+                        <UpdateOrSaveButton note={note} handleUpdateCarrierNote={handleUpdateCarrierNote}/>
                         <button onClick={() => handleDeleteCarrierNote(note.id)}>delete</button>
                         <hr></hr>
                     </div>

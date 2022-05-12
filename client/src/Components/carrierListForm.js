@@ -14,11 +14,14 @@ export default function CarrierListForm({setNotes, notes}) {
             .then(r => setCarriers(r))
         , [])
 
+        //update the options for carriers dropdown
     function changeSelect() {
         const result = carriers.filter(carrier => carrier.carrier_name.toLowerCase().includes(inputCarrier.toLowerCase()))
         setSelect(result)
     }
 
+
+    //add a new carier note
     function postNote(e) {
         e.preventDefault()
         const selectCarrier = e.target[1][0].value
