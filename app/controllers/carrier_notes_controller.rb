@@ -17,12 +17,14 @@ class CarrierNotesController < ApplicationController
   end
 
   def update
-    binding.break
+    note = CarrierNote.find_by(id: params[:id])
+    note.update(note: params[:updatedNote])
+    render json: note
   end
 
   private
 
   def notes_params
-    params.permit(:note, :selectCarrier, :id)
+    params.permit(:note, :selectCarrier, :id, :updatedNote)
   end
 end

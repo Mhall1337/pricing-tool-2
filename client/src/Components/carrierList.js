@@ -50,9 +50,9 @@ export default function CarrierList() {
                         <div>{note.carrier.carrier_name}</div>
                         {/* <textarea value={note.note} onChange={(e) => setinputVal(e.target.value)}></textarea> */}
                         <label>Carrier Note:</label>
-                        <UpdateOrSaveButton note={note}/>
+                        <UpdateOrSaveButton note={note} />
                         <button onClick={() => handleDeleteCarrierNote(note.id)}>delete</button>
-                        
+                        <hr></hr>
                     </div>
                 )
             }</div>

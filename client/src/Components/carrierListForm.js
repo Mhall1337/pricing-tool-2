@@ -36,7 +36,7 @@ export default function CarrierListForm({setNotes, notes}) {
         .then(r => r.json())
         .then(r => setNotes([r, ...notes]))
     }
-    //console.log(notes.map(note => note.note))
+ 
     return (
         <div className="search-bar">
             <hr></hr>
