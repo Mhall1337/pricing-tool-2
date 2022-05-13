@@ -39,16 +39,18 @@ export default function CarrierList() {
     }
 
     return (
-        <div className="carrier-list-container">Carrier List
+        <div className="carrier-list-container">
             <CarrierListForm setNotes={setNotes} notes={notes} />
-            <div>{
+            <h2 className="comments-title">Comments</h2>
+            <div className="comments-list">{
                 notes.map((note, index) =>
-                    <div key={index}>
+                    <div key={index} className="comments-list-item">
                         <label>Carrier Name:</label>
                         <div>{note.carrier.carrier_name}</div>
                         {/* <textarea value={note.note} onChange={(e) => setinputVal(e.target.value)}></textarea> */}
-                        <label>Carrier Note:</label>
+                        <div >Comments:
                         <UpdateOrSaveButton note={note} handleUpdateCarrierNote={handleUpdateCarrierNote}/>
+                        </div>
                         <button onClick={() => handleDeleteCarrierNote(note.id)}>delete</button>
                         <hr></hr>
                     </div>

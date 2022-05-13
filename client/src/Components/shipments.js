@@ -35,7 +35,6 @@ function Shipments({shipments, setShipments, filterShipments}) {
 
     return (
         <div>
-            <h3>Shipments</h3>
             <SearchBar filterOriginCity={filterOriginCity} filterOriginState={filterOriginState} shipments={shipments} filterDestinationCity={filterDestinationCity} filterDestinationState={filterDestinationState} filterCarrier={filterCarrier} resetShipments={resetShipments} setShipments={setShipments} />
             <table className='grid-container'>
                 <TableHead setShipments={setShipments} shipments={shipments} />

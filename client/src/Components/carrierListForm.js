@@ -49,7 +49,7 @@ export default function CarrierListForm({setNotes, notes}) {
                 <select>
                     {select.map((carrier, index) => <option key={index}>{carrier.carrier_name}</option>)}
                 </select>
-                <label>Notes</label>
+                <label>Notes: </label>
                 <textarea value={note} onChange={e => setNote(e.target.value)}>needs a value attribute</textarea>
                 <input type="submit"></input>
             </form>

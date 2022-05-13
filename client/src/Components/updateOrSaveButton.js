@@ -4,23 +4,12 @@ export default function UpdateOrSaveButton({ note, handleUpdateCarrierNote }) {
     const [button, setButton] = useState(true)
     const [textArea, setTextArea] = useState(note.note)
 
+    //changes state to reflect updated note, sends textArea value and note.id to handleUpdateCarrierNote function in carrierList.js, and changes state to remove textbox
     function saveUpdatedNote(e, id) {
         e.preventDefault()
         setTextArea(e.target[0].value)
         handleUpdateCarrierNote(e, id)
         setButton(true)
-
-
-        //console.log(e.target[0].value)
-        // fetch(`/carrier_notes/${id}`, {
-        //     method: 'PATCH',
-        //     headers: {
-        //         "content-type": "application/JSON"
-        //     },
-        //     body: JSON.stringify({updatedNote: e.target[0].value})
-        // })
-        // .then(r => r.json())
-        // .then(r => setTextArea(r))
     }
 
     //ternary for conditional rendering to update carrier notes and buttons to update and save
@@ -38,9 +27,10 @@ export default function UpdateOrSaveButton({ note, handleUpdateCarrierNote }) {
             </div>
         )
 
+        //renders carrier note and conditional rendering for textarea and save/discard/update buttons
     return (
         <div>
-            <div>{textArea}</div>
+            <div className="comment">{textArea}</div>
             {value}
         </div>
     )
