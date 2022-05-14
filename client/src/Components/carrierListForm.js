@@ -41,16 +41,18 @@ export default function CarrierListForm({setNotes, notes}) {
     }
  
     return (
-        <div className="search-bar">
+        <div className="search-bar" id="carrier-search">
             <hr></hr>
             <form onChange={changeSelect} onSubmit={postNote} className="carrier-list-form">
-                <label>Carrier Name: </label>
+                <div>Carrier Name:</div>
                 <input type="text" placeholder="Carrier Name" value={inputCarrier} onChange={e => setInputCarrier(e.target.value)}></input>
                 <select>
                     {select.map((carrier, index) => <option key={index}>{carrier.carrier_name}</option>)}
                 </select>
-                <label>Notes: </label>
-                <textarea value={note} onChange={e => setNote(e.target.value)}>needs a value attribute</textarea>
+                <br></br>
+                <br></br>
+                <div>Notes: </div>
+                <textarea value={note} onChange={e => setNote(e.target.value)}></textarea>
                 <input type="submit"></input>
             </form>
             <hr></hr>

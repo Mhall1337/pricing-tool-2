@@ -188,9 +188,8 @@ iframe {
 
 
 .carrier-list-container{
-  color:#faf8f8;
   background-color: #f09819;
-
+  display: flex
 }
 
 .comments-title{
@@ -203,14 +202,14 @@ iframe {
   font-weight: 800;
 }
 .comment{
-  overflow: hidden;
   background: #eaeaea;
   color: #434343;
   padding: 0.5rem;
   border-radius: 8px;
-  display:inline-block;
+  display:flex;
   width: 60%;
   box-sizing: border-box;
+  
 }
 .comments-list{
   background: blue;
@@ -222,4 +221,12 @@ iframe {
   background-color: #ff512f;
   border-radius: 5px;
   padding: 5px;
+  margin:10px
+}
+#carrier-search{
+  width:45%
+}
+textarea{
+  width:300px;
+  height: 100px;
 }

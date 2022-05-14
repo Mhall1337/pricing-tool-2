@@ -7,7 +7,6 @@ export default function UpdateOrSaveButton({ note, handleUpdateCarrierNote }) {
     //changes state to reflect updated note, sends textArea value and note.id to handleUpdateCarrierNote function in carrierList.js, and changes state to remove textbox
     function saveUpdatedNote(e, id) {
         e.preventDefault()
-        setTextArea(e.target[0].value)
         handleUpdateCarrierNote(e, id)
         setButton(true)
     }
@@ -20,7 +19,7 @@ export default function UpdateOrSaveButton({ note, handleUpdateCarrierNote }) {
         : value = (
             <div>
                 <form onSubmit={(e) => saveUpdatedNote(e, note.id)}>
-                    <textarea>{textArea}</textarea>
+                    <textarea value={textArea} onChange={(e)=>setTextArea(e.target.value)}></textarea>
                     <input type="submit" value="Save Changes"></input>
                 </form>
                 <button onClick={() => setButton(true)}>Discard Changes</button>
