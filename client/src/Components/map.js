@@ -10,7 +10,7 @@ function Map() {
             <iframe className="map"
                 width="600"
                 height="450"
-                loading="lazy"
+                //loading="lazy"
                 //allowfullscreen
                 referrerPolicy="no-referrer-when-downgrade"
                 src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAqIzuqJD63roTs9NVIQz_cama-o_wk-UA

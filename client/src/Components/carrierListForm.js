@@ -28,7 +28,7 @@ export default function CarrierListForm({postNote}) {
     return (
         <div className="search-bar" id="carrier-search">
             <hr></hr>
-            <form onChange={(e)=>changeSelect(e)} onSubmit={(e)=>postNote(e, note)} className="carrier-list-form">
+            <form onChange={(e)=>changeSelect(e)} onSubmit={(e)=>{postNote(e, note); setNote(''); setInputCarrier('')}} className="carrier-list-form">
                 <div>Carrier Name:</div>
                 <input type="text" placeholder="Carrier Name" value={inputCarrier} onChange={e => setInputCarrier(e.target.value)}></input>
                 <select>

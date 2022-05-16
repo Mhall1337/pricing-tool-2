@@ -22,7 +22,9 @@ function SignUp() {
           })
           .then(r => r.json())
           .then(r => {
-            
+            setUserName('')
+            setPassword('')
+            setConfirmPassword('')
             console.log(r)})
           .catch(error => console.log(error))
           e.target.reset()
