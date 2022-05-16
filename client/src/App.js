@@ -10,20 +10,19 @@ import { useState, useEffect } from 'react';
 import Logout from './Components/logout';
 
 function App() {
+  
   const [filterShipments, setFilterShipments] = useState([])
   const [shipments, setShipments] = useState([])
-
   const [user, setUser] = useState(null)
+
   useEffect(() => {
     fetch('/shipments')
-        .then(r => r.json())
-        .then(r => {
-         setShipments(r); setFilterShipments(r)})
-        .catch(error => console.log(error))
-}, [])
+      .then(r => r.json())
+      .then(r => {
+        setShipments(r); setFilterShipments(r)
+      })
+      .catch(error => console.log(error))
 
-  useEffect(() => {
-    // auto-login
     fetch("/me").then((r) => {
       if (r.ok) {
         r.json().then((user) => {
@@ -31,8 +30,11 @@ function App() {
         })
           .catch(error => console.log(error));
       }
-    });
-  }, []);
+    })
+  }, [])
+
+
+
   if (!user) {
     return (
       <div>
@@ -58,10 +60,10 @@ function App() {
             <CarrierList />
           </Route>
           <Route path="/logout">
-            <Logout setUser={setUser}/>
+            <Logout setUser={setUser} />
           </Route>
           <Route exact path="/">
-            <Shipments shipments={shipments} setShipments={setShipments} filterShipments={filterShipments}/>
+            <Shipments shipments={shipments} setShipments={setShipments} filterShipments={filterShipments} />
           </Route>
         </Switch>
       </div>

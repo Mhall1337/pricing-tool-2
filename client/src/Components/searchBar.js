@@ -1,12 +1,9 @@
-import SearchByLocation from "./searchByLocationRadius"
-
 
 function SearchBar({ filterOriginCity, filterOriginState, filterDestinationCity, filterDestinationState, filterCarrier, resetShipments, setShipments }) {
 
     return (
         <div className="search-bar">
             <hr></hr>
-            {/* <SearchByLocation setShipments={setShipments}/> */}
             <div><strong>Search Shipments</strong></div>
             <label>Origin City: </label>
             <input placeholder="Search Origin City" type='text' name="origin_city" onChange={(e) => filterOriginCity(e)}></input>

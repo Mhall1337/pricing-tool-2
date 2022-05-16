@@ -185,14 +185,7 @@ iframe {
   /* padding: 10px */
 }
 
-
-
-.carrier-list-container{
-  background-color: #f09819;
-  display: flex
-}
-
-.comments-title{
+/* .comments-title{
   text-align: center;
   padding-top: 1rem;
   font-family: MD Primer Bold,Rubik,Lato,Lucida Grande,Lucida Sans Unicode,Tahoma,Sans-Serif;
@@ -200,31 +193,38 @@ iframe {
   font-weight: 700;
   font-size: clamp(1.8rem,1.8rem + .2vw,3rem);
   font-weight: 800;
+} */
+
+.carrier-list-container{
+  background-color: #f09819;
+  display:flex;
+  align-items: baseline;
 }
 .comment{
   background: #eaeaea;
   color: #434343;
   padding: 0.5rem;
   border-radius: 8px;
-  display:flex;
-  width: 60%;
   box-sizing: border-box;
   
 }
 .comments-list{
   background: blue;
-  display: flex;
+  display:flex;
   flex-direction: column;
   padding: 10px;
+  
 }
 .comments-list-item{
   background-color: #ff512f;
   border-radius: 5px;
   padding: 5px;
-  margin:10px
+  margin:10px;
+  
 }
 #carrier-search{
-  width:45%
+  width:320px;
+  padding:5px
 }
 textarea{
   width:300px;

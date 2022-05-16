@@ -17,12 +17,12 @@ export default function UpdateOrSaveButton({ note, handleUpdateCarrierNote }) {
         <button onClick={() => setButton(false)}>update</button>
     )
         : value = (
-            <div>
+            <div >
                 <form onSubmit={(e) => saveUpdatedNote(e, note.id)}>
                     <textarea value={textArea} onChange={(e)=>setTextArea(e.target.value)}></textarea>
                     <input type="submit" value="Save Changes"></input>
                 </form>
-                <button onClick={() => setButton(true)}>Discard Changes</button>
+                <button onClick={() => {setButton(true); setTextArea(note.note)}}>Discard Changes</button>
             </div>
         )
 
@@ -30,7 +30,7 @@ export default function UpdateOrSaveButton({ note, handleUpdateCarrierNote }) {
     return (
         <div>
             <div className="comment">{textArea}</div>
-            {value}
+            <div>{value}</div>
         </div>
     )
 }

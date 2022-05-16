@@ -1,7 +1,7 @@
 import { useEffect } from "react"
 import { useState } from "react"
 
-export default function CarrierListForm({setNotes, notes}) {
+export default function CarrierListForm({postNote}) {
 
     const [inputCarrier, setInputCarrier] = useState('')
     const [note, setNote] = useState('')
@@ -20,30 +20,11 @@ export default function CarrierListForm({setNotes, notes}) {
         setSelect(result)
     }
 
-
-    //add a new carier note
-    function postNote(e) {
-        e.preventDefault()
-        const selectCarrier = e.target[1][0].value
-
-        fetch("/carrier_notes", {
-            method: "POST",
-            headers: {
-                'Content-Type': "application/JSON"
-            },
-            body: JSON.stringify({
-                note,
-                selectCarrier
-            })
-        })
-        .then(r => r.json())
-        .then(r => setNotes([r, ...notes]))
-    }
  
     return (
         <div className="search-bar" id="carrier-search">
             <hr></hr>
-            <form onChange={changeSelect} onSubmit={postNote} className="carrier-list-form">
+            <form onChange={changeSelect} onSubmit={(e)=>postNote(e, note)} className="carrier-list-form">
                 <div>Carrier Name:</div>
                 <input type="text" placeholder="Carrier Name" value={inputCarrier} onChange={e => setInputCarrier(e.target.value)}></input>
                 <select>

@@ -38,16 +38,35 @@ export default function CarrierList() {
         .then(r => console.log(r))
     }
 
+    function postNote(e, note) {
+        e.preventDefault()
+        const selectCarrier = e.target[1][0].value
+
+        fetch("/carrier_notes", {
+            method: "POST",
+            headers: {
+                'Content-Type': "application/JSON"
+            },
+            body: JSON.stringify({
+                note,
+                selectCarrier
+            })
+        })
+        .then(r => r.json())
+        .then(r => 
+            {console.log(r)
+             setNotes([...notes, r])})
+    }
+
     return (
         <div className="carrier-list-container">
-            <CarrierListForm setNotes={setNotes} notes={notes} />
+            <CarrierListForm setNotes={setNotes} notes={notes} postNote={postNote}/>
            
             <div className="comments-list">{
                 notes.map((note, index) =>
                     <div key={index} className="comments-list-item">
                         <label><u>Carrier Name:</u></label>
                         <div>{note.carrier.carrier_name}</div>
-                        {/* <textarea value={note.note} onChange={(e) => setinputVal(e.target.value)}></textarea> */}
                         <div><u>Comments:</u>
                         <UpdateOrSaveButton note={note} handleUpdateCarrierNote={handleUpdateCarrierNote}/>
                         </div>
