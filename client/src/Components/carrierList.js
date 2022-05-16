@@ -65,11 +65,11 @@ export default function CarrierList() {
             <div className="comments-list">{
                 notes.map((note, index) =>
                     <div key={index} className="comments-list-item">
-                        <label><u>Carrier Name:</u></label>
-                        <div>{note.carrier.carrier_name}</div>
-                        <div><u>Comments:</u>
+                        {/* <label><u>Carrier Name:</u></label> */}
+                        <h3> <u>Carrier: {note.carrier.carrier_name}</u></h3>
+                        {/* <div> */}
                         <UpdateOrSaveButton note={note} handleUpdateCarrierNote={handleUpdateCarrierNote}/>
-                        </div>
+                        {/* </div> */}
                         <button onClick={() => handleDeleteCarrierNote(note.id)}>delete</button>
                         <hr></hr>
                     </div>
