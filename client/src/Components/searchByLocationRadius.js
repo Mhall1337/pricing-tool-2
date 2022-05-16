@@ -24,6 +24,9 @@ export default function SearchByLocationRadius({ setShipments }) {
             .then(r =>{
                 console.log(r)
                 setShipments([...r])
+                setOriginCity('')
+                setOriginState('')
+                setMiles(0)
             })
             .catch(e => console.log(e))
     }
