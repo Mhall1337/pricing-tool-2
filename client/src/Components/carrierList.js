@@ -53,11 +53,12 @@ export default function CarrierList() {
         })
             .then(r => r.json())
             .then(r => {
-                if(r.ok){
-                console.log(r)
-                setNotes([...notes, r])
-            }
-        })
+                if (r.ok) {
+                    setNotes([...notes, r])
+                } else {
+                    alert("Note must be 5 or more characters long")
+                }
+            })
     }
 
     return (
