@@ -53,9 +53,11 @@ export default function CarrierList() {
         })
             .then(r => r.json())
             .then(r => {
+                if(r.ok){
                 console.log(r)
                 setNotes([...notes, r])
-            })
+            }
+        })
     }
 
     return (
@@ -65,7 +67,7 @@ export default function CarrierList() {
                 notes.map((note, index) =>
                     <div key={index} className="comments-list-item">
                         <hr></hr>
-                        <h3> <u>Carrier: {note.carrier.carrier_name}</u></h3>
+                        <h3><u>Carrier: {note.carrier.carrier_name}</u></h3>
                         <UpdateOrSaveButton note={note} handleUpdateCarrierNote={handleUpdateCarrierNote} />
                         <button onClick={() => handleDeleteCarrierNote(note.id)}>delete</button>
                         <hr></hr>
