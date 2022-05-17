@@ -105,10 +105,20 @@ body{
   right: -30px;
   bottom: -80px;
 }
+.logout{
+  border: 2px solid rgba(255,255,255,0.1);
+  position: absolute;
+  border-radius: 10px;
+  padding: 35px 100px;
+  display:grid;
+  background-color: rgba(0, 0, 0, 0.452);
+  color: whitesmoke;
+}
+
 .signupForm{
   height: 520px;
   width: 400px;
-  background-color: rgba(255,255,255,0.13);
+  background-color: rgba(0, 0, 0, 0.452);
   position: absolute;
   transform: translate(-50%,-50%);
   top: 50%;
@@ -119,6 +129,7 @@ body{
   box-shadow: 0 0 40px rgba(8,7,16,0.6);
   padding: 50px 35px;
 }
+
 .signupForm *{
   font-family: 'Poppins',sans-serif;
   color: #ffffff;
@@ -138,12 +149,13 @@ body{
   margin-top: 30px;
   font-size: 16px;
   font-weight: 500;
+
 }
 .signupInput{
   display: block;
   height: 50px;
   width: 100%;
-  background-color: rgba(255,255,255,0.07);
+  background-color: rgba(134, 160, 139, 0.342);
   border-radius: 3px;
   padding: 0 10px;
   margin-top: 8px;
@@ -154,13 +166,16 @@ body{
 .submit{
   margin-top: 50px;
   width: 100%;
-  background-color: #faf8f8;
+  background-color: #ffffff;
   color: #080710;
   padding: 15px 0;
   font-size: 18px;
   font-weight: 600;
   border-radius: 5px;
   cursor: pointer;
+}
+.submit:hover{
+  background-color: gray;
 }
 
 
@@ -185,18 +200,9 @@ iframe {
   /* padding: 10px */
 }
 
-/* .comments-title{
-  text-align: center;
-  padding-top: 1rem;
-  font-family: MD Primer Bold,Rubik,Lato,Lucida Grande,Lucida Sans Unicode,Tahoma,Sans-Serif;
-  font-style: normal;
-  font-weight: 700;
-  font-size: clamp(1.8rem,1.8rem + .2vw,3rem);
-  font-weight: 800;
-} */
 
 .carrier-list-container{
-  background-color: #f09819;
+  background-color: #477C67;
   display:flex;
   align-items: baseline;
 }
@@ -204,20 +210,15 @@ iframe {
   background: #eaeaea;
   color: #434343;
   padding: 0.5rem;
-  border-radius: 8px;
   box-sizing: border-box;
-  
 }
 .comments-list{
-  background: blue;
+  /* background: 477C67; */
   display:flex;
   flex-direction: column;
-  padding: 10px;
-  
 }
 .comments-list-item{
-  background-color: #ff512f;
-  border-radius: 5px;
+  background-color: rgb(248, 248, 248);
   padding: 5px;
   margin:10px;
   

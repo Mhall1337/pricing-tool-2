@@ -8,7 +8,7 @@ function NavBar({ user }) {
                     <li><NavLink to="/" exact className="navBar"> Shipments </NavLink></li>
                     <li><NavLink to="/map" exact className="navBar"> Map </NavLink></li>
                     <li><NavLink to="/carrier-list" exact className='navbar'>Carrier List</NavLink></li>
-                    <li className="right-nav"><NavLink to="/logout" exact className="navBar">Logout</NavLink></li>
+                    <li className="right-nav"><NavLink to="/logout" exact className="navBar">Log Out</NavLink></li>
                 </ul>
             </div> 
         )

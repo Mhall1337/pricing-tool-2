@@ -1,11 +1,12 @@
 import { useState } from "react"
-//import { useHistory } from "react-router-dom";
+import { useHistory } from "react-router";
 
 
-export default function SignIn({ setUser }) {
+
+export default function SignIn({ setUser, user }) {
   const [userName, setUserName] = useState('')
   const [password, setPassword] = useState('')
-  //let history = useHistory()
+  //const history = useHistory()
 
   function handleLogin(e) {
     e.preventDefault();
@@ -21,10 +22,10 @@ export default function SignIn({ setUser }) {
     }).then(r => {
       if (r.ok) {
         return r.json().then(user => {
-          setUser([user])
           setUserName("")
           setPassword("")
-          //history.push("/login")
+          setUser([user])
+         // history.push("/")
         })
       }
       else {
@@ -33,6 +34,7 @@ export default function SignIn({ setUser }) {
     })
   }
 
+  if(!user){
   return (
     <div>
       <div className="background">
@@ -45,10 +47,12 @@ export default function SignIn({ setUser }) {
         <input type="text" placeholder="Username" value={userName} onChange={e => setUserName(e.target.value)} className="signupInput"></input>
         <br></br>
         <label className="signupLable">Password:  </label>
-        <input type="text" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} className="signupInput"></input>
+        <input type="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} className="signupInput"></input>
         <br></br>
         <input type="submit" value="Sign In" className="submit"></input>
       </form>
     </div>
   )
+  }
 }
+

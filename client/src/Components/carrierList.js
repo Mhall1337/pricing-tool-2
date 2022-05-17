@@ -6,7 +6,6 @@ export default function CarrierList() {
 
     const [notes, setNotes] = useState([])
 
-    //  console.log(inputVal)
 
     useEffect(() =>
         fetch('/carrier_notes')
@@ -32,10 +31,10 @@ export default function CarrierList() {
             headers: {
                 "content-type": "application/JSON"
             },
-            body: JSON.stringify({updatedNote: e.target[0].value})
+            body: JSON.stringify({ updatedNote: e.target[0].value })
         })
-        .then(r => r.json())
-        .then(r => console.log(r))
+            .then(r => r.json())
+            .then(r => console.log(r))
     }
 
     function postNote(e, note) {
@@ -52,24 +51,22 @@ export default function CarrierList() {
                 selectCarrier
             })
         })
-        .then(r => r.json())
-        .then(r => 
-            {console.log(r)
-             setNotes([...notes, r])})
+            .then(r => r.json())
+            .then(r => {
+                console.log(r)
+                setNotes([...notes, r])
+            })
     }
 
     return (
         <div className="carrier-list-container">
-            <CarrierListForm setNotes={setNotes} notes={notes} postNote={postNote}/>
-           
+            <CarrierListForm setNotes={setNotes} notes={notes} postNote={postNote} />
             <div className="comments-list">{
                 notes.map((note, index) =>
                     <div key={index} className="comments-list-item">
-                        {/* <label><u>Carrier Name:</u></label> */}
+                        <hr></hr>
                         <h3> <u>Carrier: {note.carrier.carrier_name}</u></h3>
-                        {/* <div> */}
-                        <UpdateOrSaveButton note={note} handleUpdateCarrierNote={handleUpdateCarrierNote}/>
-                        {/* </div> */}
+                        <UpdateOrSaveButton note={note} handleUpdateCarrierNote={handleUpdateCarrierNote} />
                         <button onClick={() => handleDeleteCarrierNote(note.id)}>delete</button>
                         <hr></hr>
                     </div>
