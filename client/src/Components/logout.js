@@ -1,8 +1,12 @@
+import { useHistory } from "react-router";
+
 export default function Logout({ setUser }) {
+  const history = useHistory()
 
   function handleLogout() {
     fetch("/logout", { method: "DELETE" }).then((r) => {
       if (r.ok) {
+        history.push("/signin")
         setUser(null);
       }
     });

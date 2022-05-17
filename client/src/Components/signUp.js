@@ -8,7 +8,7 @@ function SignUp() {
     const [userName, setUserName] = useState('')
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
-    //let history = useHistory()
+    const history = useHistory()
 
     function handleSubmit(e) {
         e.preventDefault()
@@ -25,7 +25,7 @@ function SignUp() {
             setUserName('')
             setPassword('')
             setConfirmPassword('')
-            console.log(r)})
+            history.push('/signin')})
           .catch(error => console.log(error))
           e.target.reset()
     }
