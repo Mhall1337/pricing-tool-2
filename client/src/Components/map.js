@@ -1,17 +1,24 @@
 import { useState } from "react"
 import SearchByLocationRadius from "./searchByLocationRadius"
 import TableHead from "./tableHead"
-import { GoogleMap, Marker, Circle } from "@react-google-maps/api"
+import { GoogleMap, Marker, Circle, useLoadScript } from "@react-google-maps/api"
 import { useEffect } from "react"
+
 
 
 function Map() {
 
     const [shipments, setShipments] = useState([])
     const [miles, setMiles] = useState(0)
-
     const [location, setLocation] = useState([])
-    console.log(location.map(lo => lo))
+    const {isLoaded} = useLoadScript({
+        googleMapsApiKey: "AIzaSyD8C3G6NEH8_pqEOdEl6rSbT99Otnzh0y8",
+        libraries: ["places"],
+    })
+
+    console.log(shipments.map(lo => lo))
+    console.log(shipments.length)
+
     useEffect(() => {
         fetch('/locations')
             .then(r => r.json())
@@ -19,14 +26,18 @@ function Map() {
     }, [])
 
 
+    if(!isLoaded) return<div>Loading...</div>
     return (
         <div>
             <GoogleMap zoom={5} center={{ lat: 41.8755616, lng: -87.6244212 }} mapContainerClassName="map-container">
-                {location.map((location, index) => {
+               {shipments.length <= 0 ?  <>{location.map((location, index) => {
                     return <Marker key={index} position={{ lat: location.latitude, lng: location.longitude }} />
-                })}
-                <Circle center={{ lat: 41.8755616, lng: -87.6244212 }} radius={miles * 1000} />
+                })}</>:<>{shipments.map((shipment, index)=>{                   
+                    return <Marker key={index} position={{lat: shipment.origin.latitude, lng: shipment.origin.longitude}}/>
+                })}</>}
+                <Circle center={{ lat: 41.8755616, lng: -87.6244212 }} radius={miles * 1609.34} />
             </GoogleMap>
+
             <SearchByLocationRadius setShipments={setShipments} miles={miles} setMiles={setMiles} />
             <table className='grid-container'>
                 <TableHead setShipments={setShipments} shipments={shipments} />
