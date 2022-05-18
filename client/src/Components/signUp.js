@@ -2,8 +2,6 @@ import { useState } from "react"
 import { useHistory } from "react-router"
 
 
-
-
 function SignUp() {
     const [userName, setUserName] = useState('')
     const [password, setPassword] = useState('')
@@ -12,22 +10,27 @@ function SignUp() {
 
     function handleSubmit(e) {
         e.preventDefault()
-       // console.log('clicked')
-          fetch('/signup',{
-              method: 'POST',
-              headers:{
-                  'Content-Type': 'application/json'
-              },
-              body: JSON.stringify({username: userName, password: password, confirmPassword: confirmPassword})
-          })
-          .then(r => r.json())
-          .then(r => {
-            setUserName('')
-            setPassword('')
-            setConfirmPassword('')
-            history.push('/signin')})
-          .catch(error => console.log(error))
-          e.target.reset()
+        // console.log('clicked')
+        fetch('/signup', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                username: userName,
+                password: password,
+                confirmPassword: confirmPassword
+            })
+        })
+            .then(r => r.json())
+            .then(r => {
+                setUserName('')
+                setPassword('')
+                setConfirmPassword('')
+                history.push('/signin')
+            })
+            .catch(error => console.log(error))
+        e.target.reset()
     }
 
     return (

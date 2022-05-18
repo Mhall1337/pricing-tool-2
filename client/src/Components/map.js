@@ -1,6 +1,8 @@
 import { useState } from "react"
 import SearchByLocationRadius from "./searchByLocationRadius"
 import TableHead from "./tableHead"
+
+
 function Map() {
 
     const [shipments, setShipments] = useState([])
