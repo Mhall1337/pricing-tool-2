@@ -188,7 +188,7 @@ body{
 }
 
 
-iframe {
+.map-container {
   display: block;
   /* border-style:5pm; */
   width: 1000px;
@@ -232,7 +232,7 @@ textarea{
   height: 100px;
 }
 
-.map-container{
+/* .map-container{
   width: 100%;
   height: 95vh;
-}
+} */

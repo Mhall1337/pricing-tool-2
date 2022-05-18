@@ -1,11 +1,10 @@
 import { useState } from "react"
 
 
-export default function SearchByLocationRadius({ setShipments }) {
+export default function SearchByLocationRadius({ setShipments, miles, setMiles }) {
 
     const [originCity, setOriginCity] = useState('')
     const [originState, setOriginState] = useState('')
-    const [miles, setMiles] = useState(0)
 
     function searchRadius(e) {
         e.preventDefault()

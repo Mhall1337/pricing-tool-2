@@ -1,7 +1,7 @@
-import {useLoadScript, GoogleMap, Marker} from "@react-google-maps/api"
+import {useLoadScript, GoogleMap, Marker, Circle} from "@react-google-maps/api"
 import { useEffect } from "react"
 import { useState } from "react"
-import Map from "./map"
+
 
 
 export default function TestMap(){
@@ -30,6 +30,7 @@ function NewMap(){
         {location.map((location, index) =>{
            return <Marker key={index} position={{lat: location.latitude, lng: location.longitude}} />
         })}
+        <Circle center={{lat: 41.8755616, lng: -87.6244212}} radius={500000}/>
     </GoogleMap>
     )
 }
