@@ -6,6 +6,11 @@ class LocationsController < ApplicationController
         render json: shipments, status: :created, include: [:dispatcher, :carrier, :origin, :destination]
     end
 
+    def index
+        location = Location.all
+        render json: location, status: :created
+    end
+
     private
     def permitParams
         params.permit(:id, :miles, :originCity, :originState, :distance)
