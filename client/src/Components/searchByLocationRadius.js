@@ -21,11 +21,10 @@ export default function SearchByLocationRadius({ setShipments, miles, setMiles }
         })
             .then(r => r.json())
             .then(r =>{
-                console.log(r)
                 setShipments([...r])
                 setOriginCity('')
                 setOriginState('')
-                setMiles(0)
+                document.querySelector("#root > div > div:nth-child(2) > div.search-bar > form > input[type=text]:nth-child(6)").value = 0
             })
             .catch(e => console.log(e))
     }

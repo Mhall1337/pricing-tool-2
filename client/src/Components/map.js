@@ -4,20 +4,19 @@ import TableHead from "./tableHead"
 import { GoogleMap, Marker, Circle, useLoadScript } from "@react-google-maps/api"
 import { useEffect } from "react"
 
+import {GOOGLE_MAPS_API_KEY} from "../config.js"
 
 
 function Map() {
-
+    //const [place, setPlace] = useState()
     const [shipments, setShipments] = useState([])
     const [miles, setMiles] = useState(0)
     const [location, setLocation] = useState([])
     const {isLoaded} = useLoadScript({
-        googleMapsApiKey: "AIzaSyD8C3G6NEH8_pqEOdEl6rSbT99Otnzh0y8",
+        googleMapsApiKey: GOOGLE_MAPS_API_KEY,
         libraries: ["places"],
     })
 
-    console.log(shipments.map(lo => lo))
-    console.log(shipments.length)
 
     useEffect(() => {
         fetch('/locations')
@@ -29,7 +28,11 @@ function Map() {
     if(!isLoaded) return<div>Loading...</div>
     return (
         <div>
-            <GoogleMap zoom={5} center={{ lat: 41.8755616, lng: -87.6244212 }} mapContainerClassName="map-container">
+            {/* <Places setPlace={(position)=>{
+                setPlace(position)
+            }}/> */}
+            <GoogleMap zoom={4} center={{ lat: 41.8755616, lng: -87.6244212 }} mapContainerClassName="map-container">
+                {/* ternary that conditionally renders markers */}
                {shipments.length <= 0 ?  <>{location.map((location, index) => {
                     return <Marker key={index} position={{ lat: location.latitude, lng: location.longitude }} />
                 })}</>:<>{shipments.map((shipment, index)=>{                   
@@ -37,15 +40,12 @@ function Map() {
                 })}</>}
                 <Circle center={{ lat: 41.8755616, lng: -87.6244212 }} radius={miles * 1609.34} />
             </GoogleMap>
-
             <SearchByLocationRadius setShipments={setShipments} miles={miles} setMiles={setMiles} />
             <table className='grid-container'>
                 <TableHead setShipments={setShipments} shipments={shipments} />
                 <tbody>
                     {shipments.map((shipment, index) => {
-
                         const { commodity, carrier, dispatcher, miles, rate, destination, origin } = shipment
-
                         return (
                             <tr className="table-row" key={index}>
                                 <td className="table-data">{origin.city}</td>

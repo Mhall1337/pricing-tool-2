@@ -8,7 +8,6 @@ import SignIn from './Components/signIn';
 import CarrierList from './Components/carrierList';
 import { useState, useEffect } from 'react';
 import Logout from './Components/logout';
-import TestMap from './Components/testMap';
 
 function App() {
   
@@ -62,9 +61,6 @@ function App() {
           </Route>
           <Route path="/logout">
             <Logout setUser={setUser} />
-          </Route>
-          <Route exact path="/testmap">
-            <TestMap />
           </Route>
           <Route exact path="/">
             <Shipments shipments={shipments} setShipments={setShipments} filterShipments={filterShipments} />

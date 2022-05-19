@@ -1,12 +1,12 @@
 import {useLoadScript, GoogleMap, Marker, Circle} from "@react-google-maps/api"
 import { useEffect } from "react"
 import { useState } from "react"
-
+import NEXT_PUBLIC_GOOGLE_MAPS_API_KEY from "./.env.local"
 
 
 export default function TestMap(){
     const {isLoaded} = useLoadScript({
-        googleMapsApiKey: "AIzaSyD8C3G6NEH8_pqEOdEl6rSbT99Otnzh0y8",
+        googleMapsApiKey: NEXT_PUBLIC_GOOGLE_MAPS_API_KEY,
         libraries: ["places"],
     })
     
