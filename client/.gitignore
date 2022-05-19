@@ -24,4 +24,4 @@ yarn-error.log*
 
 .env.local
 
-client/src/config.js
+config.js
