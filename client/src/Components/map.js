@@ -28,9 +28,7 @@ function Map() {
     if(!isLoaded) return<div>Loading...</div>
     return (
         <div>
-            {/* <Places setPlace={(position)=>{
-                setPlace(position)
-            }}/> */}
+            <Places />
             <GoogleMap zoom={4} center={{ lat: 41.8755616, lng: -87.6244212 }} mapContainerClassName="map-container">
                 {/* ternary that conditionally renders markers */}
                {shipments.length <= 0 ?  <>{location.map((location, index) => {
