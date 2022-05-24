@@ -19,6 +19,9 @@ function Map() {
         libraries,
     })
     const mapRef = React.useRef()
+    const onMapLoad = React.useCallback((map)=>{
+        mapRef.current = map
+    },[])
     const panTo = React.useCallback(({lat, lng}) =>{
         mapRef.current.panTo({lat, lng})
         mapRef.current.setZoom(10)
@@ -37,7 +40,7 @@ function Map() {
     return (
         <div>
             <Places panTo={panTo}/>
-            <GoogleMap zoom={4} center={{ lat: 41.8755616, lng: -87.6244212 }} mapContainerClassName="map-container">
+            <GoogleMap zoom={4} center={{ lat: 41.8755616, lng: -87.6244212 }} mapContainerClassName="map-container" onLoad={onMapLoad}>
                 {/* ternary that conditionally renders markers */}
                {shipments.length <= 0 ?  <>{location.map((location, index) => {
                     return <Marker key={index} position={{ lat: location.latitude, lng: location.longitude }} />
