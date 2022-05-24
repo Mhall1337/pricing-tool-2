@@ -3,9 +3,10 @@ import SearchByLocationRadius from "./searchByLocationRadius"
 import TableHead from "./tableHead"
 import { GoogleMap, Marker, Circle, useLoadScript } from "@react-google-maps/api"
 import { useEffect } from "react"
-
+import Places from "./places.js"
 import {GOOGLE_MAPS_API_KEY} from "../config.js"
 
+const libraries = ["places"]
 
 function Map() {
     //const [place, setPlace] = useState()
@@ -14,7 +15,7 @@ function Map() {
     const [location, setLocation] = useState([])
     const {isLoaded} = useLoadScript({
         googleMapsApiKey: GOOGLE_MAPS_API_KEY,
-        libraries: ["places"],
+        libraries,
     })
 
 
