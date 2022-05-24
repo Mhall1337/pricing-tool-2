@@ -3,7 +3,7 @@ import usePlacesAutocomplete, { getGeocode, getLatLng } from "use-places-autocom
 import "@reach/combobox/styles.css"
 import React from "react"
 
-export default function Places({panTo}) {
+export default function Places({panTo, setOriginCity, setOriginState, setCenterCircle}) {
     const { value, suggestions: { status, data }, setValue, clearSuggestions } = usePlacesAutocomplete({
         requestOptions: {
             location: { lat: () => 43, lng: () => -79 },
@@ -20,8 +20,9 @@ export default function Places({panTo}) {
                 try{
                     const results = await getGeocode({address})
                     const {lat, lng} = await getLatLng(results[0])
-                    console.log(lat, lng)
-                    console.log(results[0].address_components[0].long_name, results[0].address_components[2].short_name)
+                    setCenterCircle({lat, lng})
+                    setOriginCity(results[0].address_components[0].long_name)
+                    setOriginState(results[0].address_components[2].short_name)
                     panTo({lat, lng})
                 }catch(error){
                     console.log("there was an error")

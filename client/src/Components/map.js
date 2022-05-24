@@ -11,6 +11,9 @@ const libraries = ["places"]
 
 function Map() {
     //const [place, setPlace] = useState()
+    const [centerCircle, setCenterCircle] = useState({ lat: 41.8755616, lng: -87.6244212 })
+    const [originCity, setOriginCity] = useState('')
+    const [originState, setOriginState] = useState('')
     const [shipments, setShipments] = useState([])
     const [miles, setMiles] = useState(0)
     const [location, setLocation] = useState([])
@@ -24,7 +27,7 @@ function Map() {
     },[])
     const panTo = React.useCallback(({lat, lng}) =>{
         mapRef.current.panTo({lat, lng})
-        mapRef.current.setZoom(10)
+        //mapRef.current.setZoom(4)
         console.log("panTo")
     },[])
 
@@ -39,7 +42,7 @@ function Map() {
     if(!isLoaded) return<div>Loading...</div>
     return (
         <div>
-            <Places panTo={panTo}/>
+            <Places panTo={panTo} setOriginCity={setOriginCity} setOriginState={setOriginState} setCenterCircle={setCenterCircle}/>
             <GoogleMap zoom={4} center={{ lat: 41.8755616, lng: -87.6244212 }} mapContainerClassName="map-container" onLoad={onMapLoad}>
                 {/* ternary that conditionally renders markers */}
                {shipments.length <= 0 ?  <>{location.map((location, index) => {
@@ -47,9 +50,9 @@ function Map() {
                 })}</>:<>{shipments.map((shipment, index)=>{                   
                     return <Marker key={index} position={{lat: shipment.origin.latitude, lng: shipment.origin.longitude}}/>
                 })}</>}
-                <Circle center={{ lat: 41.8755616, lng: -87.6244212 }} radius={miles * 1609.34} />
+                <Circle center={centerCircle} radius={miles * 1609.34} />
             </GoogleMap>
-            <SearchByLocationRadius setShipments={setShipments} miles={miles} setMiles={setMiles} />
+            <SearchByLocationRadius setShipments={setShipments} miles={miles} setMiles={setMiles} originCity={originCity} originState={originState} setOriginCity={setOriginCity} setOriginState={setOriginState}/>
             <table className='grid-container'>
                 <TableHead setShipments={setShipments} shipments={shipments} />
                 <tbody>
