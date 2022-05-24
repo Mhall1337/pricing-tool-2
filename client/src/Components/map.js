@@ -5,6 +5,7 @@ import { GoogleMap, Marker, Circle, useLoadScript } from "@react-google-maps/api
 import { useEffect } from "react"
 import Places from "./places.js"
 import {GOOGLE_MAPS_API_KEY} from "../config.js"
+import React from "react"
 
 const libraries = ["places"]
 
@@ -17,6 +18,12 @@ function Map() {
         googleMapsApiKey: GOOGLE_MAPS_API_KEY,
         libraries,
     })
+    const mapRef = React.useRef()
+    const panTo = React.useCallback(({lat, lng}) =>{
+        mapRef.current.panTo({lat, lng})
+        mapRef.current.setZoom(10)
+        console.log("panTo")
+    },[])
 
 
     useEffect(() => {
@@ -29,7 +36,7 @@ function Map() {
     if(!isLoaded) return<div>Loading...</div>
     return (
         <div>
-            <Places />
+            <Places panTo={panTo}/>
             <GoogleMap zoom={4} center={{ lat: 41.8755616, lng: -87.6244212 }} mapContainerClassName="map-container">
                 {/* ternary that conditionally renders markers */}
                {shipments.length <= 0 ?  <>{location.map((location, index) => {
