@@ -26,7 +26,7 @@ export default function Places({panTo, setOriginCity, setOriginState, setCenterC
                     setOriginState(results[0].address_components[2].short_name)
                     panTo({lat, lng})
                 }catch(error){
-                    console.log("there was an error")
+                    console.log(error)
                 }
                  }}>
                 <ComboboxInput value={value} onChange={e => setValue(e.target.value)} placeholder="enter address"/>

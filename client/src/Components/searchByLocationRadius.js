@@ -1,8 +1,7 @@
-import { useState } from "react"
+import Places from "./places"
 
 
-export default function SearchByLocationRadius({ setShipments, miles, setMiles, originCity, originState, setOriginCity, setOriginState }) {
-
+export default function SearchByLocationRadius({ setShipments, miles, setMiles, originCity, originState, setOriginCity, setOriginState, panTo, setCenterCircle }) {
 
 
     function searchRadius(e) {
@@ -19,7 +18,7 @@ export default function SearchByLocationRadius({ setShipments, miles, setMiles, 
             })
         })
             .then(r => r.json())
-            .then(r =>{
+            .then(r => {
                 setShipments([...r])
                 setOriginCity('')
                 setOriginState('')
@@ -31,13 +30,10 @@ export default function SearchByLocationRadius({ setShipments, miles, setMiles, 
     return (
         <div className="search-bar">
             <hr></hr>
-           <strong> Search within a radius from Origin:</strong>
+            <strong> Search within a radius from Origin: </strong>
+                <Places panTo={panTo} setOriginCity={setOriginCity} setOriginState={setOriginState} setCenterCircle={setCenterCircle} />
             <form onSubmit={searchRadius} >
-                <label>Origin City</label>
-                <input type="text" value={originCity} onChange={(e) => setOriginCity(e.target.value)} placeholder='Origin City'></input>
-                <label>Origin State</label>
-                <input type="text" value={originState} onChange={(e) => setOriginState(e.target.value)} placeholder='Origin State'></input>
-                <label>Miles</label>
+                <label>Miles from origin: </label>
                 <input type="text" value={miles} onChange={(e) => setMiles(e.target.value)} placeholder='Miles'></input>
                 <input type='submit' value='Search'></input>
             </form>

@@ -3,7 +3,7 @@ import SearchByLocationRadius from "./searchByLocationRadius"
 import TableHead from "./tableHead"
 import { GoogleMap, Marker, Circle, useLoadScript } from "@react-google-maps/api"
 import { useEffect } from "react"
-import Places from "./places.js"
+
 
 import React from "react"
 
@@ -12,7 +12,7 @@ const libraries = ["places"]
 
 function Map() {
     //const [place, setPlace] = useState()
-    const [centerCircle, setCenterCircle] = useState({ lat: 41.8755616, lng: -87.6244212 })
+    const [centerCircle, setCenterCircle] = useState({lat: 41.8755616, lng: -87.6244212})
     const [originCity, setOriginCity] = useState('')
     const [originState, setOriginState] = useState('')
     const [shipments, setShipments] = useState([])
@@ -41,8 +41,8 @@ function Map() {
     if(!isLoaded) return<div>Loading...</div>
     return (
         <div>
-            <Places panTo={panTo} setOriginCity={setOriginCity} setOriginState={setOriginState} setCenterCircle={setCenterCircle}/>
-            <GoogleMap zoom={4} center={{ lat: 41.8755616, lng: -87.6244212 }} mapContainerClassName="map-container" onLoad={onMapLoad}>
+            {/* <Places panTo={panTo} setOriginCity={setOriginCity} setOriginState={setOriginState} setCenterCircle={setCenterCircle}/> */}
+            <GoogleMap zoom={4} center={centerCircle} mapContainerClassName="map-container" onLoad={onMapLoad}>
                 {/* ternary that conditionally renders markers */}
                {shipments.length <= 0 ?  <>{location.map((location, index) => {
                     return <Marker key={index} position={{ lat: location.latitude, lng: location.longitude }} />
@@ -51,7 +51,7 @@ function Map() {
                 })}</>}
                 <Circle center={centerCircle} radius={miles * 1609.34} />
             </GoogleMap>
-            <SearchByLocationRadius setShipments={setShipments} miles={miles} setMiles={setMiles} originCity={originCity} originState={originState} setOriginCity={setOriginCity} setOriginState={setOriginState}/>
+            <SearchByLocationRadius panTo={panTo} setCenterCircle={setCenterCircle} setShipments={setShipments} miles={miles} setMiles={setMiles} originCity={originCity} originState={originState} setOriginCity={setOriginCity} setOriginState={setOriginState}/>
             <table className='grid-container'>
                 <TableHead setShipments={setShipments} shipments={shipments} />
                 <tbody>
