@@ -1,7 +1,9 @@
+
 import { Combobox, ComboboxInput, ComboboxPopover, ComboboxList, ComboboxOption } from "@reach/combobox"
 import usePlacesAutocomplete, { getGeocode, getLatLng } from "use-places-autocomplete"
 import "@reach/combobox/styles.css"
 import React from "react"
+
 
 export default function Places({panTo, setOriginCity, setOriginState, setCenterCircle}) {
     const { value, suggestions: { status, data }, setValue, clearSuggestions } = usePlacesAutocomplete({
@@ -12,8 +14,7 @@ export default function Places({panTo, setOriginCity, setOriginState, setCenterC
     })
     
     return (
-        <div>
-            <div>places</div>
+        <div>           
             <Combobox onSelect={ async (address) => { 
                 setValue(address, false);
                 clearSuggestions()
@@ -29,7 +30,7 @@ export default function Places({panTo, setOriginCity, setOriginState, setCenterC
                 }
                  }}>
                 <ComboboxInput value={value} onChange={e => setValue(e.target.value)} placeholder="enter address"/>
-                <ComboboxPopover>{status === "OK" && data.map(({id, description})=> (<ComboboxOption value={description} key={id}/>))}</ComboboxPopover>
+                <ComboboxPopover>{status === "OK" && data.map(({index, description})=> (<ComboboxOption value={description} key={index}/>))}</ComboboxPopover>
             </Combobox>
         </div>
     )

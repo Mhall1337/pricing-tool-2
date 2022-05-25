@@ -4,8 +4,9 @@ import TableHead from "./tableHead"
 import { GoogleMap, Marker, Circle, useLoadScript } from "@react-google-maps/api"
 import { useEffect } from "react"
 import Places from "./places.js"
-import {GOOGLE_MAPS_API_KEY} from "../config.js"
+
 import React from "react"
+
 
 const libraries = ["places"]
 
@@ -18,7 +19,7 @@ function Map() {
     const [miles, setMiles] = useState(0)
     const [location, setLocation] = useState([])
     const {isLoaded} = useLoadScript({
-        googleMapsApiKey: GOOGLE_MAPS_API_KEY,
+        googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
         libraries,
     })
     const mapRef = React.useRef()
@@ -27,8 +28,6 @@ function Map() {
     },[])
     const panTo = React.useCallback(({lat, lng}) =>{
         mapRef.current.panTo({lat, lng})
-        //mapRef.current.setZoom(4)
-        console.log("panTo")
     },[])
 
 
