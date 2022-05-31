@@ -41,7 +41,7 @@ function Map() {
     if(!isLoaded) return<div>Loading...</div>
     return (
         <div>
-            {/* <Places panTo={panTo} setOriginCity={setOriginCity} setOriginState={setOriginState} setCenterCircle={setCenterCircle}/> */}
+            {/* rendering the google map */}
             <GoogleMap zoom={4} center={centerCircle} mapContainerClassName="map-container" onLoad={onMapLoad}>
                 {/* ternary that conditionally renders markers */}
                {shipments.length <= 0 ?  <>{location.map((location, index) => {

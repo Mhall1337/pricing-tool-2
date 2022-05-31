@@ -52,13 +52,9 @@ export default function CarrierList() {
             })
         })
             .then(r => r.json())
-            .then(r => {
-                if (r.ok) {
-                    setNotes([...notes, r])
-                } else {
-                    alert("Note must be 5 or more characters long")
-                }
-            })
+            .then(r => 
+                setNotes([...notes, r])
+            )     
     }
 
     return (
